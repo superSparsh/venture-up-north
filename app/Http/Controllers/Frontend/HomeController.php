@@ -76,14 +76,14 @@ class HomeController extends Controller
         $popup = SitePopup::single();
 
         return Inertia::render('Frontend/Home/Index', [
-            // 'seo' => [
-            //     'title' => $seo['title'] ?? 'Welcome - Venture Up North',
-            //     'description' => $seo['description'] ?? 'Venture Up North - Explore, Indulge, Breathe',
-            //     'image' => '/public' . $seo['image'] ?? asset('/public/images/Venture-Up-North.png'),
-            //     'canonical' => canonical_url(),
-            //     'robots' => 'index, follow',
-            //     'type' => 'website',
-            // ],
+            'seo' => [
+                'title' => $seo['title'] ?? 'Welcome - Venture Up North',
+                'description' => $seo['description'] ?? 'Venture Up North - Explore, Indulge, Breathe',
+                'image' => '/public' . $seo['image'] ?? asset('/public/images/Venture-Up-North.png'),
+                'canonical' => canonical_url(),
+                'robots' => 'index, follow',
+                'type' => 'website',
+            ],
             'members' => TeamMember::where('is_active', 1)
                 ->with('user')
                 ->get(['id', 'name', 'photo', 'designation', 'bio', 'user_id'])
