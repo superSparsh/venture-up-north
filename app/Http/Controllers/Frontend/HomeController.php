@@ -73,13 +73,14 @@ class HomeController extends Controller
     public function index()
     {
         $seo = json_decode(\App\Models\Setting::get('site_seo'), true);
+        $seoImage = $seo['image'] ?? null;
         $popup = SitePopup::single();
 
         return Inertia::render('Frontend/Home/Index', [
             'seo' => [
                 'title' => $seo['title'] ?? 'Welcome - Venture Up North',
                 'description' => $seo['description'] ?? 'Venture Up North - Explore, Indulge, Breathe',
-                'image' => '/public' . $seo['image'] ?? asset('/public/images/Venture-Up-North.png'),
+                'image'       => $seoImage ? url('/public' . $seoImage) : asset('/public/images/Venture-Up-North.png'),
                 'canonical' => canonical_url(),
                 'robots' => 'index, follow',
                 'type' => 'website',
@@ -171,7 +172,7 @@ class HomeController extends Controller
             'tours' => TourTile::select('id', 'slug', 'title')->get(),
             'events' => Event::upcoming()->select('id', 'slug', 'name')->get(),
             'contents' => ThingsToDoCategory::select('id', 'slug', 'name')->get(),
-            'content_listings' => ThingsToDoItem::with(['category:id,slug'])->select('id', 'slug', 'title','category_id')->get(),
+            'content_listings' => ThingsToDoItem::with(['category:id,slug'])->select('id', 'slug', 'title', 'category_id')->get(),
             'collections' => Collection::select('id', 'slug', 'name')->get(),
         ]);
     }

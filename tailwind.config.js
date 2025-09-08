@@ -18,8 +18,8 @@ export default {
             },
             scrollBehavior: ['responsive'],
             colors: {
-                heavy: '#6A3F32',
-                bison: '#86B9DF',
+                heavy: '#86B9DF',
+                bison: '#6A3F32',
                 envy: '#CC6648',
                 granny: '#3082BD',
                 gray: 'oklch(13% 0.028 261.692)',

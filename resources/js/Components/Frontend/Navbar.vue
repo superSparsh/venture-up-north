@@ -62,7 +62,7 @@ onUnmounted(() => {
             <div v-if="!scrolled"
                 class="w-full md:w-1/3 px-4 text-center flex flex-col items-center justify-center leading-tight">
                 <Link :href="`/`">
-                <img src="/public/images/venture.png" alt="Venture Up North" :class="[
+                <img src="/public/images/Venture-Up-North.png" alt="Venture Up North" :class="[
                     'mx-auto object-contain transition duration-500 ease-in-out drop-shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.8)] hover:scale-105',
                     menuOpen ? 'h-40' : 'h-52 md:h-64'
                 ]" />
