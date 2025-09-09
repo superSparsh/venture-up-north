@@ -9,8 +9,8 @@
                         We have access to an accommodation booking service that can secure you the most competitive
                         rates across a range of accommodation properties down south.
                         Contact our Luxe Venturer (
-                        <a href="mailto:robyn@venturedownsouth.com.au"
-                            class="text-teal-400 hover:underline">robyn@venturedownsouth.com.au</a>
+                        <a href="mailto:robyn@ventureupnorth.com.au"
+                            class="text-teal-400 hover:underline">robyn@ventureupnorth.com.au</a>
                         /
                         <a href="tel:+61409082731" class="text-teal-400 hover:underline">+61 409 082 731</a>
                         ).

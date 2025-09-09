@@ -37,7 +37,7 @@ const submit = () => {
         <section class="relative min-h-screen flex items-center justify-center text-white">
             <!-- 🎥 Background Video -->
             <video class="absolute inset-0 w-full h-full object-cover z-0" autoplay loop muted playsinline>
-                <source src="/public/videos/VentureDownSouth-HomePage-Video.mp4" type="video/mp4" />
+                <source src="/public/videos/ventureupnorth-HomePage-Video.mp4" type="video/mp4" />
             </video>
 
             <!-- 🟤 Dark Overlay -->

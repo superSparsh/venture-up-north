@@ -201,7 +201,7 @@ const nativeShare = async () => {
 
         <Head :title="event.name" />
         <SeoMeta :title="`Explore ${event.name} - Venture Up North`" :description="event.summary"
-            :image="event.seo_image" :canonical="`https://venturedownsouth.com/experiences/${event.slug}`" :index="true"
+            :image="event.seo_image" :canonical="`https://ventureupnorth.com/experiences/${event.slug}`" :index="true"
             :follow="true" />
 
         <!-- Hero Section -->

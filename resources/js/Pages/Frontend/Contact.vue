@@ -39,7 +39,7 @@ async function submit() {
         <SeoMeta :title="`Contact Us - Venture Up North`"
             :description="`Have a question, suggestion, or partnership idea? We'd love to hear from you!
 Whether you're planning your next adventure or want to collaborate, reach out and our team will get back to you as soon as possible.s`"
-            :image="`/public/images/Venture-Up-North.png`" :canonical="`https://venturedownsouth.com/towns/contact`"
+            :image="`/public/images/Venture-Up-North.png`" :canonical="`https://ventureupnorth.com/towns/contact`"
             :index="true" :follow="true" />
         <div class="min-h-screen bg-white flex flex-col">
             <!-- Hero Section -->

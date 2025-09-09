@@ -21,7 +21,7 @@ onMounted(() => {
     // Load pluginJs manually if not already loaded
     if (!document.querySelector('script[src*="pluginJs"]')) {
         const script = document.createElement('script')
-        script.src = 'https://venturedownsouth.rezdy.com/pluginJs'
+        script.src = 'https://ventureupnorth.rezdy.com/pluginJs'
         script.defer = true
         document.body.appendChild(script)
 
@@ -60,7 +60,7 @@ const loading = ref(true)
 
         <Head :title="'Book - ' + title" />
         <SeoMeta :title="`Explore ${props.seo_title} - Venture Up North`" :description="props.seo_description"
-            :image="props.seo_image" :canonical="`https://venturedownsouth.com/${props.base_path}/${props.slug}`"
+            :image="props.seo_image" :canonical="`https://ventureupnorth.com/${props.base_path}/${props.slug}`"
             :index="true" :follow="true" />
 
         <div class="min-h-screen flex flex-col bg-white text-heavy">

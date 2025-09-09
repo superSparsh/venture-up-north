@@ -39,7 +39,7 @@ const slugify = (s) =>
                 <Link :href="`/experience/${experience.slug}`">
                 <img :src="experience.hero_image" :alt="experience.name"
                     class="w-full h-96 object-cover rounded-lg shadow transition-transform duration-500 group-hover:scale-105 group-hover:shadow-xl" />
-                <TileShare :url="`https://venturedownsouth.com.au/experience/${experience.slug}`" :title="experience.name"
+                <TileShare :url="`https://ventureupnorth.com.au/experience/${experience.slug}`" :title="experience.name"
                     :text="truncateWords(experience.seo_description, 20)" />
                 <div v-if="item.tags?.length" class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
                     <Link v-for="tag in item.tags" :key="tag.id" :href="`/tours#${tag.slug || slugify(tag.name)}`"

@@ -49,7 +49,7 @@
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
 
-                    <TileShare :url="`https://venturedownsouth.com.au/event/${item.slug}`" :title="item.name"
+                    <TileShare :url="`https://ventureupnorth.com.au/event/${item.slug}`" :title="item.name"
                         :text="truncateWords(item.summary, 20)" />
 
                     <!-- ❤️ AddToMyVentureButton floating -->

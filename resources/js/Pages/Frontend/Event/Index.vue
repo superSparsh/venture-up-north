@@ -58,7 +58,7 @@ const renderedDescription = computed(() => {
 
         <Head title="Events" />
         <SeoMeta :title="`Explore ${event.name} - Venture Up North`" :description="event.summary"
-            :image="event.seo_image" :canonical="`https://venturedownsouth.com/explore/${event.slug}`"
+            :image="event.seo_image" :canonical="`https://ventureupnorth.com/explore/${event.slug}`"
             :index="true" :follow="true" />
 
         <!-- Hero Section -->

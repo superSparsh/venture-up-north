@@ -71,7 +71,7 @@ const tourClicks = computed(() => usePage().props.tourClicks || [])
 
         <Head :title="magazine.name" />
         <SeoMeta :title="`Explore ${magazine.name} - Venture Up North`" :description="magazine.summary"
-            :image="magazine.seo_image" :canonical="`https://venturedownsouth.com/experiences/${magazine.slug}`"
+            :image="magazine.seo_image" :canonical="`https://ventureupnorth.com/experiences/${magazine.slug}`"
             :index="true" :follow="true" :site_name="magazine.site_name" />
 
         <!-- Hero Section -->

@@ -36,7 +36,7 @@ const filteredMagazines = computed(() => {
 
                     <!-- Share (not wrapped by Link) -->
                     <TileShare class="absolute top-3 right-3 z-40"
-                        :url="`https://venturedownsouth.com.au/magazine/${magazine.slug}`" :title="magazine.name"
+                        :url="`https://ventureupnorth.com.au/magazine/${magazine.slug}`" :title="magazine.name"
                         :text="truncateWords(magazine.seo_description, 20)" />
 
                     <!-- Tags (not inside Link either) -->

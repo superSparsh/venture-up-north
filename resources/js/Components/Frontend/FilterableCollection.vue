@@ -24,7 +24,7 @@
                     <img :src="`/public/storage/${item.hero_image}`" :alt="item.name"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                    <TileShare :url="`https://venturedownsouth.com.au/collection/${item.slug}`" :title="item.name"
+                    <TileShare :url="`https://ventureupnorth.com.au/collection/${item.slug}`" :title="item.name"
                         :text="truncateWords(item.summary, 20)" />
 
                     <!-- ✅ Tags block (with subtle blur and translucent background) -->

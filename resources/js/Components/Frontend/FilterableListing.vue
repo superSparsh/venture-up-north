@@ -38,7 +38,7 @@
                     <img :src="`/public/storage/${item.image}`" :alt="item.title"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                    <TileShare :url="`https://venturedownsouth.com.au/explore/${category.slug}/${item.slug}`"
+                    <TileShare :url="`https://ventureupnorth.com.au/explore/${category.slug}/${item.slug}`"
                         :title="item.title" :text="truncateWords(item.summary, 20)" />
 
                     <!-- ❤️ AddToMyVentureButton floating -->

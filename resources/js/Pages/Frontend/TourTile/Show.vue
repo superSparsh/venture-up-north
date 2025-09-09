@@ -144,7 +144,7 @@ const normalizeUrl = (url) => {
 
         <Head :title="tour.name" />
         <SeoMeta :title="`Explore ${tour.name} - Venture Up North`" :description="tour.summary"
-            :image="tour.seo_image" :canonical="`https://venturedownsouth.com/experiences/${tour.slug}`" :index="true"
+            :image="tour.seo_image" :canonical="`https://ventureupnorth.com/experiences/${tour.slug}`" :index="true"
             :follow="true" />
 
         <!-- Hero Section -->

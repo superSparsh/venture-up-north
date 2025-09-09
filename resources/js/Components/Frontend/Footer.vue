@@ -160,7 +160,7 @@ function closeBookingModal() {
                     </p>
                     <!-- Right: Mailchimp Form -->
                     <form
-                        action="https://venturedownsouth.us16.list-manage.com/subscribe/post?u=278c223d88935d8eb67de9227&amp;id=bd1d9a7a1a&amp;f_id=00f6c2e1f0"
+                        action="https://ventureupnorth.us16.list-manage.com/subscribe/post?u=278c223d88935d8eb67de9227&amp;id=bd1d9a7a1a&amp;f_id=00f6c2e1f0"
                         method="post" target="_blank"
                         class="flex flex-col sm:flex-row items-start sm:items-center gap-2" novalidate>
                         <input type="email" name="EMAIL" placeholder="Your email address" required

@@ -7,7 +7,7 @@
                     class="relative group overflow-hidden rounded-xl shadow hover:shadow-lg transition-all duration-300">
                 <img :src="tile.image" :alt="tile.title"
                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <!-- <TileShare :url="`https://venturedownsouth.com.au/${tile.link}`" :title="tile.title"
+                <!-- <TileShare :url="`https://ventureupnorth.com.au/${tile.link}`" :title="tile.title"
                     :text="truncateWords(tile.summary, 20)" /> -->
                 <div class="absolute inset-0 bg-black/40 flex items-center justify-center text-center px-4">
                     <div>

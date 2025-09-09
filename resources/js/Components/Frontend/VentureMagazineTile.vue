@@ -100,7 +100,7 @@ const renderedDescription = computed(() => {
                     <img :src="item.hero_image" :alt="item.title"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                    <TileShare :url="`https://venturedownsouth.com.au/magazine/${item.slug}`" :title="item.title"
+                    <TileShare :url="`https://ventureupnorth.com.au/magazine/${item.slug}`" :title="item.title"
                         :text="truncateWords(item.seo_description, 20)" />
 
                     <!-- ✅ Tags block (with subtle blur and translucent background) -->

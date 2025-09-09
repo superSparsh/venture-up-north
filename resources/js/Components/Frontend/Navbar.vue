@@ -95,7 +95,7 @@ onUnmounted(() => {
                 </a>
 
                 <!-- Facebook (hide on mobile) -->
-                <a class="hidden md:inline" href="https://www.facebook.com/venturedownsouthwa" target="_blank"
+                <a class="hidden md:inline" href="https://www.facebook.com/ventureupnorthwa" target="_blank"
                     rel="noopener noreferrer">
                     <Facebook :class="[
                         'w-7 h-7 md:w-6 md:h-6 transition hover:text-teal-200',
@@ -104,7 +104,7 @@ onUnmounted(() => {
                 </a>
 
                 <!-- Instagram (hide on mobile) -->
-                <a class="hidden md:inline" href="https://www.instagram.com/venturedownsouth" target="_blank"
+                <a class="hidden md:inline" href="https://www.instagram.com/ventureupnorth" target="_blank"
                     rel="noopener noreferrer">
                     <Instagram :class="[
                         'w-7 h-7 md:w-6 md:h-6 transition hover:text-teal-200',
@@ -113,7 +113,7 @@ onUnmounted(() => {
                 </a>
 
                 <!-- Mail -->
-                <a href="mailto:chris@venturedownsouth.com.au" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:chris@ventureupnorth.com.au" target="_blank" rel="noopener noreferrer">
                     <Mail :class="[
                         'w-7 h-7 md:w-6 md:h-6 transition hover:text-teal-200',
                         scrolled ? 'text-heavy' : 'text-white'

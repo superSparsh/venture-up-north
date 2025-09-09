@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <SeoMeta :title="`Welcome - Venture Up North`" :description="`Venture Up North - Explore, Indulge, Breathe`"
-            :image="`/public/images/Venture-Up-North.png`" :canonical="`https://venturedownsouth.com`" :index="true"
+            :image="`/public/images/Venture-Up-North.png`" :canonical="`https://ventureupnorth.com`" :index="true"
             :follow="true" />
 
         <Head :title="seo?.title || 'Welcome'" />

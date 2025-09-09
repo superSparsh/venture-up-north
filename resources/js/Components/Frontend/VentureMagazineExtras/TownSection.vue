@@ -45,7 +45,7 @@ const slugify = (s) =>
                         <!-- Image -->
                         <img :src="item.hero_image" :alt="item.name"
                             class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
-                        <TileShare :url="`https://venturedownsouth.com.au/town/${item.slug}`" :title="item.name"
+                        <TileShare :url="`https://ventureupnorth.com.au/town/${item.slug}`" :title="item.name"
                             :text="truncateWords(item.seo_description, 20)" />
                         <!-- ✅ Tags block (with subtle blur and translucent background) -->
                         <div v-if="item.tags?.length" class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">

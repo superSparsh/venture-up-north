@@ -52,7 +52,7 @@ const renderedDescription = computed(() => {
 
         <Head :title="experience.name" />
         <SeoMeta :title="`Explore ${experience.name} - Venture Up North`" :description="experience.summary"
-            :image="experience.seo_image" :canonical="`https://venturedownsouth.com/experiences/${experience.slug}`" :index="true"
+            :image="experience.seo_image" :canonical="`https://ventureupnorth.com/experiences/${experience.slug}`" :index="true"
             :follow="true" />
 
         <!-- Hero Section -->

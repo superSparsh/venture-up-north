@@ -15,10 +15,10 @@ class ForceComAuDomain
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->getHost() === 'venturedownsouth.com') {
+        if ($request->getHost() === 'ventureupnorth.com') {
             $newUrl = str_replace(
-                'https://venturedownsouth.com',
-                'https://venturedownsouth.com.au',
+                'https://ventureupnorth.com',
+                'https://ventureupnorth.com.au',
                 $request->fullUrl()
             );
 

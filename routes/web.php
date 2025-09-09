@@ -88,7 +88,7 @@ Route::get('/venture/share', function () {
         'seo' => [
             'title' => 'Shared Venture',
             'description' => 'A shared Venture itinerary.',
-            'image' => asset('/public/images/venture.png'),
+            'image' => asset('/public/images/Venture-Up-North.png'),
             'canonical' => url()->current(),
             'robots' => 'index, follow',
             'type' => 'website',

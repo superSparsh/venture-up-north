@@ -142,10 +142,10 @@
 
                 <!-- Only visible on mobile -->
                 <div class="flex md:hidden justify-end gap-4 pt-4 border-t border-gray-200">
-                    <a href="https://www.facebook.com/venturedownsouthwa" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/ventureupnorthwa" target="_blank" rel="noopener noreferrer">
                         <Facebook class="w-6 h-6 text-white hover:text-teal-600 transition" />
                     </a>
-                    <a href="https://www.instagram.com/venturedownsouth" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/ventureupnorth" target="_blank" rel="noopener noreferrer">
                         <Instagram class="w-6 h-6 text-white hover:text-teal-600 transition" />
                     </a>
                     <a href="/my-venture" target="_blank" rel="noopener noreferrer">

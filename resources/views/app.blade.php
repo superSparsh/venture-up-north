@@ -9,11 +9,11 @@
         $seo = array_merge(
             [
                 'title' => 'Venture Up North',
-                'description' => 'Explore, Indulge, Breathe.',
+                'description' => 'Discover, Immerse, Connect.',
                 'image' => asset('images/Venture-Up-North.png'),
                 'keywords' =>
                     'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North',
-                'canonical' => 'https://venturedownsouth.com.au' . Str::start(request()->getPathInfo(), '/'),
+                'canonical' => 'https://ventureupnorth.com.au' . Str::start(request()->getPathInfo(), '/'),
                 'robots' => 'index, follow',
                 'type' => 'website',
             ],
@@ -22,7 +22,7 @@
     @endphp
 
     <title inertia>{{ $seo['title'] ?? 'Venture Up North' }}</title>
-    <meta name="description" content="{{ $seo['description'] ?? 'Explore, Indulge, Breathe.' }}">
+    <meta name="description" content="{{ $seo['description'] ?? 'Discover, Immerse, Connect.' }}">
     <meta name="robots" content="{{ $seo['robots'] ?? 'index, follow' }}">
     <meta name="keywords"
         content="{{ $seo['keywords'] ?? 'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North' }}">
