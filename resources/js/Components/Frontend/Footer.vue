@@ -154,7 +154,7 @@ function closeBookingModal() {
             <div data-aos="fade-up">
                 <!-- Left: Branding / Info -->
                 <div class="w-full">
-                    <img src="/public/images/Venture-Up-North.png" alt="Footer Logo"
+                    <img src="/public/images/venture.jpeg" alt="Footer Logo"
                         class="w-[115px] h-auto object-contain mb-8" />
                         <p class="text-lg mb-8">If you'd like to <a href="https://venturedownsouth.com.au" class="text-bison">Venture Down South</a></p>
                     <p class="text-sm mb-2">Subscribe to stay updated with the latest from the Venture Up North.
