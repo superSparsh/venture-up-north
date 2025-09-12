@@ -86,7 +86,7 @@
                     <div v-if="openMenus.homepage" class="ml-4 space-y-1 mt-1">
                         <Link :href="route('admin.indulge-links.index')" class="block px-4 py-2 rounded hover:bg-heavy"
                             :class="{ 'bg-heavy font-semibold': pageUrl.startsWith('/admin/indulge-links') }">
-                        Manage Indulge Menu Links
+                        Manage Immerse Menu Links
                         </Link>
                     </div>
                     <div v-if="openMenus.homepage" class="ml-4 space-y-1 mt-1">

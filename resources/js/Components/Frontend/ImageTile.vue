@@ -1,6 +1,6 @@
 <template>
     <section class="container mx-auto px-4 py-16">
-        <h2 class="text-4xl font-bold text-left mb-12 text-heavy">Let’s Indulge</h2>
+        <h2 class="text-4xl font-bold text-left mb-12 text-heavy">Let’s Immerse</h2>
         <div class="hidden md:grid grid-cols-3 grid-rows-2 gap-6">
             <template v-for="(tile, index) in tiles" :key="tile.id">
                 <Link :href="tile.link" :class="tileClasses(index)"

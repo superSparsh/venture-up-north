@@ -1,7 +1,7 @@
 <template>
     <AdminLayout>
 
-        <Head title="Manage Indulge Menu Links" />
+        <Head title="Manage Immerse Menu Links" />
 
         <div class="p-4">
             <div class="flex justify-between items-center mb-4">

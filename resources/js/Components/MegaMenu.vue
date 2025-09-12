@@ -31,7 +31,7 @@
 
                 <!-- Indulge -->
                 <div class="hidden md:block">
-                    <h3 class="text-lg font-semibold mb-4">Let's Indulge</h3>
+                    <h3 class="text-lg font-semibold mb-4">Let's Immerse</h3>
                     <ul class="space-y-2 text-sm">
                         <li v-for="link in indulgeLinks" :key="link.id">
                             <a :href="link.link" target="_blank" rel="noopener sponsored">{{ link.title }}</a>
@@ -96,11 +96,11 @@
                     </transition>
                 </div>
 
-                <!-- Let's Indulge -->
+                <!-- Let's Immerse -->
                 <div class="md:hidden bg-white rounded-xl shadow-lg p-4 space-y-6">
                     <button @click="toggleAccordion('indulge')"
                         class="w-full flex justify-between items-center text-left font-semibold text-lg py-2">
-                        Let's Indulge
+                        Let's Immerse
                         <span class="text-gray-500 text-xl">{{ accordionStates.indulge ? '−' : '+' }}</span>
                     </button>
                     <transition name="fade">
