@@ -60,7 +60,7 @@ const ctas = computed(() => {
     if (t === 'town' && slug) {
         arr.push({ href: url.value, label: `About ${title.value}` })
         arr.push({ href: `/tours?town=${slug}`, label: 'Tours' })
-        arr.push({ href: `/explore/accommodation-down-south?town=${slug}`, label: 'Accommodation' })
+        arr.push({ href: `/explore/accommodation-up-north?town=${slug}`, label: 'Accommodation' })
     }
     if (t === 'experience' && slug) {
         arr.push({ href: `/experience/${slug}`, label: `About ${title.value}` })

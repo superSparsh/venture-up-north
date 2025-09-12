@@ -82,7 +82,7 @@ const slugify = (s) =>
                                 class="bg-white text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-envy hover:text-white transition">
                             Tours
                             </Link>
-                            <Link :href="`/explore/accommodation-down-south?town=${item.slug}`"
+                            <Link :href="`/explore/accommodation-up-north?town=${item.slug}`"
                                 class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
                             Accommodation
                             </Link>

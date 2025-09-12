@@ -66,7 +66,7 @@ const renderedDescription = computed(() => {
     </a>
 
     <!-- Accommodation -->
-    <a href="/explore/accommodation-down-south?town=${props.town.slug}"
+    <a href="/explore/accommodation-up-north?town=${props.town.slug}"
        class="relative block h-72 overflow-hidden rounded-2xl shadow-md group hover:text-bison transition-all duration-300">
 
       <img src="${props.accommodationImage}" alt="${props.town.name}"
@@ -156,7 +156,7 @@ const renderedDescription = computed(() => {
                     </div>
                     </Link>
 
-                    <Link :href="`/explore/accommodation-down-south?town=${town.slug}`"
+                    <Link :href="`/explore/accommodation-up-north?town=${town.slug}`"
                         class="block relative group overflow-hidden rounded-xl shadow-lg transition duration-300 hover:shadow-xl">
                     <img :src="accommodationImage" :alt="town.name"
                         class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />

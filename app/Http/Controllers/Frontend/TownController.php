@@ -26,7 +26,7 @@ class TownController extends Controller
             ->get(['id', 'name', 'slug', 'hero_image']);
 
         $tourImage = TourTilePageSetting::first();
-        $accommodtaionImage = ThingsToDoCategory::where('slug', 'accommodation-down-south')->first();
+        $accommodtaionImage = ThingsToDoCategory::where('slug', 'accommodation-up-north')->first();
 
         return Inertia::render('Frontend/Towns/Show', [
             'seo' => [
