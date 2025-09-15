@@ -1,11 +1,11 @@
 <template>
     <AdminLayout>
 
-        <Head title="Add Indulge Menu Link" />
+        <Head title="Add Immerse Menu Link" />
 
         <div class="w-full mx-auto p-6 bg-white rounded-xl shadow-xl">
             <div class="mb-6 border-b pb-4">
-                <h2 class="text-2xl font-semibold text-blueGray-800">Add Indulge Menu Link</h2>
+                <h2 class="text-2xl font-semibold text-blueGray-800">Add Immerse Menu Link</h2>
             </div>
 
             <form @submit.prevent="submit" class="grid grid-cols-1 md:grid-cols-2 gap-6">

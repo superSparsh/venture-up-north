@@ -3,7 +3,7 @@
         <!-- Dark Sidebar -->
         <aside class="w-64 bg-gray text-bison shadow-lg">
             <div class="p-6 border-b border-gray-800">
-                <h1 class="text-xl text-center font-semibold">Venture Down South</h1>
+                <h1 class="text-xl text-center font-semibold">Venture Up North</h1>
                 <h2 class="text-center text-xl font-semibold">Admin Panel</h2>
             </div>
             <nav class="p-4 space-y-2 text-sm">

@@ -5,7 +5,7 @@
 
         <div class="p-4">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-semibold text-blueGray-800">Indulge Menu Links</h2>
+                <h2 class="text-2xl font-semibold text-blueGray-800">Immerse Menu Links</h2>
                 <Link :href="route('admin.indulge-links.create')"
                     class="bg-emerald-500 text-white px-4 py-2 rounded hover:bg-emerald-600 shadow">
                 + Add New Link
