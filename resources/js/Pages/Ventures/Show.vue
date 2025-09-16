@@ -37,7 +37,7 @@ const shareOpen = ref(false)
 const coverImg = computed(() => {
     const raw = props.venture?.cover_image_url
     if (!raw) {
-        return '/public/images/Venture-Up-North.png'
+        return '/public/images/venture.jpeg'
     }
 
     // Already full URL

@@ -123,7 +123,7 @@ function handleDeleteDay(dayId) {
 
         <!-- HERO -->
         <section class="relative w-full h-screen overflow-hidden text-white">
-            <img src="/public/images/Venture-Up-North.png" alt="My Ventures"
+            <img src="/public/images/venture.jpeg" alt="My Ventures"
                 class="absolute inset-0 w-full h-full object-cover z-0" />
             <div class="absolute inset-0 bg-black/40 z-10"></div>
             <div class="relative z-20 h-full flex items-center" data-aos="fade-up">

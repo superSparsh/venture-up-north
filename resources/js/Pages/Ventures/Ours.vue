@@ -33,7 +33,7 @@ import 'vue-multiselect/dist/vue-multiselect.css'
 
         <!-- HERO -->
         <section class="relative w-full h-screen overflow-hidden text-white">
-            <img src="/public/images/Venture-Up-North.png" alt="Our Ventures"
+            <img src="/public/images/venture.jpeg" alt="Our Ventures"
                 class="absolute inset-0 w-full h-full object-cover z-0" />
             <div class="absolute inset-0 bg-black/40 z-10"></div>
             <div class="relative z-20 h-full flex items-center" data-aos="fade-up">

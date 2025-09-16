@@ -18,7 +18,7 @@ const url = computed(() => {
 
 const img = computed(() => {
     const raw = props.venture?.cover_image_url ?? props.venture?.og_image_url;
-    if (!raw) return '/public/images/Venture-Up-North.png';
+    if (!raw) return '/public/images/venture.jpeg';
     if (/^https?:\/\//i.test(raw)) return raw;
 
     // strip a leading "storage/" OR "public/storage/" if present

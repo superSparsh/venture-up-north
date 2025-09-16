@@ -31,7 +31,7 @@ const TYPE_META = {
 const kind = computed(() => TYPE_META[props.item.type] || { label: props.item.type || 'Place', pill: 'bg-white/10 text-white/80 ring-1 ring-inset ring-white/20', icon: MapPinIcon })
 
 const imgSrc = computed(() => {
-  const raw = props.item.image || props.item.hero_image || '/images/Venture-Up-North.png'
+  const raw = props.item.image || props.item.hero_image || '/images/venture.jpeg'
 
   // if it already starts with /public/storage/, just return as is
   if (raw.startsWith('/public/storage/')) {
