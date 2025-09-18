@@ -7,7 +7,7 @@
         </main>
         <Footer :towns="towns" :experiences="experiences" :contact="contact" :social="social" />
         <!-- Simple Popup -->
-        <teleport to="body">
+        <!-- <teleport to="body">
             <transition name="fade">
                 <div v-if="showPopup" class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50"
                     role="dialog" aria-modal="true" aria-labelledby="dev-modal-title">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </transition>
-        </teleport>
+        </teleport> -->
     </div>
 </template>
 
