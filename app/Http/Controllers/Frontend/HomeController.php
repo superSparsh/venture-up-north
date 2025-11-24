@@ -51,7 +51,7 @@ class HomeController extends Controller
                     'slug' => $experience->slug,
                 ];
             }),
-            'magazines' => VentureMagazine::all(['id', 'title', 'hero_image', 'slug', 'is_published'])->where('is_published', 1)->map(function ($magazine) {
+            'magazines' => VentureMagazine::all(['id', 'title', 'hero_image', 'slug', 'is_published'])->where('is_published', 1)->orderBy('created_at', 'desc')->map(function ($magazine) {
                 return [
                     'id' => $magazine->id,
                     'title' => $magazine->title,
@@ -128,7 +128,7 @@ class HomeController extends Controller
                     ]),
                 ];
             }),
-            'magazines' => VentureMagazine::with('tags')->select(['id', 'title', 'hero_image', 'slug', 'is_published'])->where('is_published', 1)->get()->map(function ($magazine) {
+            'magazines' => VentureMagazine::with('tags')->select(['id', 'title', 'hero_image', 'slug', 'is_published'])->where('is_published', 1)->orderBy('created_at', 'desc')->get()->map(function ($magazine) {
                 return [
                     'id' => $magazine->id,
                     'title' => $magazine->title,
