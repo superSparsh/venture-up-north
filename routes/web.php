@@ -131,7 +131,7 @@ Route::get('/collections', [FrontendCollectionController::class, 'collections'])
 
 //Event Route
 Route::get('/event/{slug}', [FrontendEventController::class, 'showEvent'])->name('event.show');
-Route::get('/events', [FrontendEventController::class, 'events'])->name('events.display');
+Route::get('/events-up-north', [FrontendEventController::class, 'events'])->name('events.display');
 
 //Contact Us
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');

@@ -95,7 +95,7 @@ watch(query, (val) => {
                                 <li v-for="item in results.tours" :key="item.id">
                                     <!-- <img v-if="item.hero_image" :src="item.hero_image"
                                         class="w-6 h-6 object-cover rounded" /> -->
-                                    <Link :href="`/book/${item.slug}`" class="block py-1 hover:underline text-bison">{{
+                                    <Link :href="`/tours/book/${item.slug}`" class="block py-1 hover:underline text-bison">{{
                                         item.name
                                     }}</Link>
                                 </li>
