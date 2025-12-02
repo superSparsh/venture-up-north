@@ -72,6 +72,7 @@
         }(document, "script",
             "https://chimpstatic.com/mcjs-connected/js/users/278c223d88935d8eb67de9227/4ac3938e9e77683b7e3334f73.js");
     </script>
+    <script type="text/javascript" src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
