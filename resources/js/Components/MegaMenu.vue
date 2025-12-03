@@ -34,7 +34,7 @@
                     <h3 class="text-lg font-semibold mb-4">Let's Immerse</h3>
                     <ul class="space-y-2 text-sm">
                         <li v-for="link in indulgeLinks" :key="link.id">
-                            <a :href="link.link" target="_blank" rel="noopener sponsored">{{ link.title }}</a>
+                            <a :href="link.link"  rel="noopener sponsored">{{ link.title }}</a>
                         </li>
                     </ul>
                 </div>
@@ -106,7 +106,7 @@
                     <transition name="fade">
                         <ul v-show="accordionStates.indulge" class="pl-2 mt-2 space-y-2 text-md text-heavy">
                             <li v-for="link in indulgeLinks" :key="link.id">
-                                <a :href="link.link" class="block hover:underline" target="_blank"
+                                <a :href="link.link" class="block hover:underline" 
                                     rel="noopener sponsored">{{ link.title }}</a>
                             </li>
                         </ul>
@@ -142,13 +142,13 @@
 
                 <!-- Only visible on mobile -->
                 <div class="flex md:hidden justify-end gap-4 pt-4 border-t border-gray-200">
-                    <a href="https://www.facebook.com/ventureupnorthwa" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/ventureupnorthwa"  rel="noopener noreferrer">
                         <Facebook class="w-6 h-6 text-white hover:text-teal-600 transition" />
                     </a>
-                    <a href="https://www.instagram.com/ventureupnorth" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/ventureupnorth"  rel="noopener noreferrer">
                         <Instagram class="w-6 h-6 text-white hover:text-teal-600 transition" />
                     </a>
-                    <a href="/my-venture" target="_blank" rel="noopener noreferrer">
+                    <a href="/my-venture"  rel="noopener noreferrer">
                         <Heart class="w-6 h-6 text-white hover:text-teal-600 transition" />
                     </a>
                 </div>
