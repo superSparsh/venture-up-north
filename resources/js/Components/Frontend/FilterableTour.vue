@@ -21,74 +21,75 @@
             <!-- Listings -->
             <TransitionGroup tag="div" name="fade-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                 appear data-aos="fade-up">
-                <a v-for="item in items" :key="item.id" :href="item.affiliates === 'rezdy'
-                    ? `/tours/book/${item.slug}`
-                    : item.rezdy_url" :class="item.affiliates === 'fareharbour'
-                        ? 'fh-book-button block group'
-                        : 'block group'" :data-fareharbor-lightframe="item.affiliates === 'fareharbour' ? 'yes' : null">
-                    <!-- Image Block -->
-                    <div
-                        class="relative overflow-hidden rounded-xl shadow-lg transition duration-300 hover:shadow-xl group">
-                        <!-- Event Image -->
-                        <img :src="`/public/storage/${item.image}`" :alt="item.name"
-                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                        <TileShare :url="`https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
-                            :text="truncateWords(item.summary, 20)" />
+                <div v-for="item in items" :key="item.id" class="relative">
 
-                        <!-- ❤️ AddToMyVentureButton floating -->
-                        <div class="absolute top-3 right-16 z-40">
-                            <AddToMyVentureButton title="Add to My Venture" :item="{
-                                id: item.id,
-                                type: 'tour',
-                                title: item.title,
-                                url: item.slug,
-                                image: item.image,
-                                tags: item.tags
-                            }" iconOnly />
-                        </div>
+                    <!-- ❤️ AddToMyVentureButton OUTSIDE the link -->
+                    <div class="absolute top-3 right-16 z-40" @click.stop.prevent>
+                        <AddToMyVentureButton title="Add to My Venture" :item="{
+                            id: item.id,
+                            type: 'tour',
+                            title: item.title,
+                            url: item.slug,
+                            image: item.image,
+                            tags: item.tags
+                        }" iconOnly />
+                    </div>
 
-                        <!-- ✅ Tags block (centered, not touching edges) -->
-                        <div v-if="item.tags?.length" class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
-                            <Link v-for="tag in item.tags" :key="tag.id"
-                                :href="`/tours#${tag.slug || slugify(tag.name)}`"
-                                class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-                            {{ tag.name }}
-                            </Link>
-                        </div>
+                    <!-- Full clickable card -->
+                    <a :href="item.affiliates === 'rezdy'
+                        ? `/tours/book/${item.slug}`
+                        : item.rezdy_url" :class="item.affiliates === 'fareharbour'
+                            ? 'fh-book-button block group'
+                            : 'block group'">
 
-
-                        <!-- Summary on Hover -->
+                        <!-- Card Content -->
                         <div
-                            class="absolute inset-0 bg-black/70 text-white z-[10] opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col items-center justify-center text-center space-y-4">
-                            <!-- Summary Text -->
-                            <p class="text-md leading-relaxed">
-                                {{ truncateWords(item.summary, 30) }}
-                            </p>
-                        </div>
+                            class="relative overflow-hidden rounded-xl shadow-lg transition duration-300 hover:shadow-xl group">
+                            <img :src="`/public/storage/${item.image}`" :alt="item.name"
+                                class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                    </div>
+                            <TileShare :url="`https://venturedownsouth.com.au/tours/book/${item.slug}`"
+                                :title="item.title" :text="truncateWords(item.summary, 20)" @click.stop.prevent />
 
-                    <!-- Details Outside Image -->
-                    <div class="mt-3 px-1 cursor-pointer">
-                        <!-- Title -->
-                        <h3 class="text-xl tracking-wide font-bold text-bison">
-                            {{ item.title }}
-                        </h3>
-
-                        <!-- Linked Town Names -->
-                        <div class="text-sm text-gray-500 tracking-wider mt-3 flex flex-wrap items-center mt-10">
-                            <template v-for="(town, index) in item.towns" :key="town.id">
-                                <Link :href="`/town/${town.slug}`"
-                                    class="hover:underline hover:text-bison hover:font-bold mr-2 text-gray-600 transition"
-                                    @click.stop target="_blank" rel="noopener">
-                                {{ town.name.toUpperCase() }}
+                            <!-- Tags -->
+                            <div v-if="item.tags?.length"
+                                class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
+                                <Link v-for="tag in item.tags" :key="tag.id"
+                                    :href="`/tours#${tag.slug || slugify(tag.name)}`" class="text-white text-sm font-semibold px-2 py-1 rounded-full
+                        backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
+                                {{ tag.name }}
                                 </Link>
-                                <span v-if="index < item.towns.length - 1" class="text-gray-400 mr-2">|</span>
-                            </template>
+                            </div>
+
+                            <!-- Hover Summary -->
+                            <div
+                                class="absolute inset-0 bg-black/70 text-white z-[10] opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col items-center justify-center text-center space-y-4">
+                                <p class="text-md leading-relaxed">
+                                    {{ truncateWords(item.summary, 30) }}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </a>
+
+                        <!-- Outside content -->
+                        <div class="mt-3 px-1 cursor-pointer">
+                            <h3 class="text-xl tracking-wide font-bold text-bison">
+                                {{ item.title }}
+                            </h3>
+
+                            <div class="text-sm text-gray-500 tracking-wider mt-3 flex flex-wrap items-center mt-10">
+                                <template v-for="(town, index) in item.towns" :key="town.id">
+                                    <Link :href="`/town/${town.slug}`" class="hover:underline hover:text-bison hover:font-bold mr-2
+                            text-gray-600 transition" @click.stop target="_blank" rel="noopener">
+                                    {{ town.name.toUpperCase() }}
+                                    </Link>
+                                    <span v-if="index < item.towns.length - 1" class="text-gray-400 mr-2">|</span>
+                                </template>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
             </TransitionGroup>
 
             <!-- Loader or End Message -->
