@@ -30,9 +30,21 @@
                             <p v-if="form.errors.title" class="text-red-500 text-sm mt-1">{{ form.errors.title }}</p>
                         </div>
 
-                        <!-- Rezdy URL -->
+                        <!-- Affiliates -->
                         <div>
-                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Rezdy Widget URL <span
+                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Affiliates <span
+                                    class="text-red-600">*</span></label>
+                            <select v-model="form.affiliates"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none">
+                                <option disabled value="">Select one</option>
+                                <option value="rezdy">Rezdy</option>
+                                <option value="fareharbour">Fareharbour</option>
+                            </select>
+                        </div>
+
+                        <!-- Affiliate URL -->
+                        <div>
+                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Affiliate URL <span
                                     class="text-red-600">*</span></label>
                             <input v-model="form.rezdy_url" type="url"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
@@ -67,7 +79,7 @@
                             <label class="block text-sm font-bold text-blueGray-700 mb-1">Description</label>
                             <EditorBlock ref="editorRef" />
                             <p v-if="form.errors.content" class="text-red-500 text-sm mt-1">{{ form.errors.content
-                                }}
+                            }}
                             </p>
                         </div>
 
@@ -76,7 +88,7 @@
                             <textarea v-model="form.summary" rows="3"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
                             <p v-if="form.errors.summary" class="text-red-500 text-sm mt-1">{{ form.errors.summary
-                                }}</p>
+                            }}</p>
                         </div>
                     </div>
                 </div>
@@ -159,7 +171,7 @@
                             <textarea v-model="form.address" rows="3"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
                             <p v-if="form.errors.address" class="text-red-500 text-sm mt-1">{{ form.errors.address
-                            }}
+                                }}
                             </p>
                         </div>
                         <!-- Email -->
@@ -168,7 +180,7 @@
                             <textarea v-model="form.email" rows="3"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
                             <p v-if="form.errors.email" class="text-red-500 text-sm mt-1">{{ form.errors.email
-                            }}</p>
+                                }}</p>
                         </div>
                         <!-- Contact -->
                         <div>
@@ -177,7 +189,7 @@
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
                             <p v-if="form.errors.phone_number" class="text-red-500 text-sm mt-1">{{
                                 form.errors.phone_number
-                            }}</p>
+                                }}</p>
                         </div>
                     </div>
                     <div class="space-y-6">
@@ -188,7 +200,7 @@
                             <EditorBlock ref="editorTimes" />
                             <p v-if="form.errors.opening_times" class="text-red-500 text-sm mt-1">{{
                                 form.errors.opening_times
-                            }}
+                                }}
                             </p>
                         </div>
                     </div>
@@ -356,6 +368,7 @@ const form = useForm({
     tag_ids: [],
     summary: '',
     content: null,
+    affiliates: "",
     opening_times: null,
     location: '',
     video: '',

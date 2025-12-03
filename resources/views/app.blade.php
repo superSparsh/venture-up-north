@@ -72,7 +72,19 @@
         }(document, "script",
             "https://chimpstatic.com/mcjs-connected/js/users/278c223d88935d8eb67de9227/4ac3938e9e77683b7e3334f73.js");
     </script>
-    <script type="text/javascript" src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
+    <script>
+        (function(s, t, a, y, twenty, two) {
+            s.Stay22 = s.Stay22 || {};
+            s.Stay22.params = {
+                lmaID: '692ef5eeb2478d16bb9aeb55'
+            };
+            twenty = t.createElement(a);
+            two = t.getElementsByTagName(a)[0];
+            twenty.async = 1;
+            twenty.src = y;
+            two.parentNode.insertBefore(twenty, two);
+        })(window, document, 'script', 'https://scripts.stay22.com/letmeallez.js');
+    </script>
     @routes
     @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
     @inertiaHead
@@ -80,6 +92,7 @@
 
 <body class="font-sans antialiased">
     @inertia
+    <script type="text/javascript" src="https://fareharbor.com/embeds/api/v1/?autolightframe=yes"></script>
 </body>
 
 </html>

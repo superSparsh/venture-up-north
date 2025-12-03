@@ -30,9 +30,24 @@
                             <p v-if="form.errors.title" class="text-red-500 text-sm mt-1">{{ form.errors.title }}</p>
                         </div>
 
-                        <!-- Rezdy Category URL -->
+                       
+                        <!-- Affiliates -->
                         <div>
-                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Rezdy URL <span
+                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Affiliates <span
+                                class="text-red-600">*</span></label>
+                            <select v-model="form.affiliates"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none">
+                                <option disabled value="">Select one</option>
+                                <option value="rezdy">Rezdy</option>
+                                <option value="fareharbour">Fareharbour</option>
+                            </select>
+                        </div>
+
+
+
+                        <!-- Affiliates URL -->
+                        <div>
+                            <label class="block text-sm font-bold text-blueGray-700 mb-1">Affiliate URL <span
                                     class="text-red-600">*</span></label>
                             <input v-model="form.rezdy_url" type="text"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-blue-200 focus:outline-none" />
@@ -385,7 +400,8 @@ const form = useForm({
     social_links: (props.tourTile.social_links || []).map(field => ({
         label: field.label || '',
         value: field.value || '',
-    }))
+    })),
+    affiliates: props.tourTile.affiliates ?? "",
 })
 
 function handleHero(e) {

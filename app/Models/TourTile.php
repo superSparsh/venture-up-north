@@ -30,6 +30,7 @@ class TourTile extends Model
         'custom_fields',
         'custom_buttons',
         'social_links',
+        'affiliates',
     ];
 
     protected $casts = [

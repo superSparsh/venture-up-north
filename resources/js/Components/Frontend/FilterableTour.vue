@@ -21,7 +21,11 @@
             <!-- Listings -->
             <TransitionGroup tag="div" name="fade-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                 appear data-aos="fade-up">
-                <a v-for="item in items" :key="item.id" :href="`/tours/book/${item.slug}`" class="block group">
+                <a v-for="item in items" :key="item.id" :href="item.affiliates === 'rezdy'
+                    ? `/tours/book/${item.slug}`
+                    : item.rezdy_url" :class="item.affiliates === 'fareharbour'
+                        ? 'fh-book-button block group'
+                        : 'block group'" :data-fareharbor-lightframe="item.affiliates === 'fareharbour' ? 'yes' : null">
                     <!-- Image Block -->
                     <div
                         class="relative overflow-hidden rounded-xl shadow-lg transition duration-300 hover:shadow-xl group">

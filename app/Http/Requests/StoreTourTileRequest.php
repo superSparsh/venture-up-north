@@ -28,6 +28,7 @@ class StoreTourTileRequest extends FormRequest
             'seo_image' => 'nullable|image|max:200|dimensions:min_width=1200,min_height=630',
             'seo_title' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string|max:500',
+            'affiliates' => 'required',
             'rezdy_url' => 'required|url|max:500',
             'is_active' => 'boolean',
 
