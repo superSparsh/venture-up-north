@@ -66,8 +66,13 @@ const ctas = computed(() => {
         arr.push({ href: `/experience/${slug}`, label: `About ${title.value}` })
         arr.push({ href: `/experience/book/${slug}`, label: 'Book Now', external: true })
     }
-    if (t == 'tour' && slug) {
-        arr.push({ href: `/tours/book/${slug}`, label: 'Book Now', external: true })
+    if (t === 'tour' && slug) {
+        const href =
+            props.item.affiliates === 'fareharbour' && props.item.rezdy_url
+                ? props.item.rezdy_url
+                : `/tours/book/${slug}`
+
+        arr.push({ href, label: 'Book Now', external: true })
     }
     if (t == 'event' && slug) {
         arr.push({ href: `/event/${slug}`, label: `Explore Event` })
@@ -83,7 +88,7 @@ function gmapsHref() {
     const q = `${props.item.lat},${props.item.lng}`
     return `https://www.google.com/maps?q=${encodeURIComponent(q)}`
 }
-// console.log(props.item)
+console.log(props.item)
 </script>
 
 <template>

@@ -69,7 +69,7 @@ function createStore() {
         id: i.id, type: i.type, title: i.title, url: i.url,
         image: i.image ?? null, tags: i.tags ?? null,
         cat_url: i.cat_url ?? null, lat: i.lat ?? null, lng: i.lng ?? null,
-        slug: i.slug ?? null, summary: i.summary ?? null
+        slug: i.slug ?? null, summary: i.summary ?? null,affiliates: i.affiliates ?? null,rezdy_url: i.rezdy_url ?? null
       }]
     } else {
       const next = [...items.value]

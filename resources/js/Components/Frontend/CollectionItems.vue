@@ -153,7 +153,9 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
                                     class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
                                 About {{ item.name }}
                                 </Link>
-                                <a v-else-if="item.type === 'tour'" :href="`/tours/book/${item.slug}`"
+                                <a v-else-if="item.type === 'tour'" :href="item.affiliates === 'fareharbour'
+                                    ? item.rezdy_url
+                                    : `/tours/book/${item.slug}`"
                                     class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
                                     Book Now
                                 </a>

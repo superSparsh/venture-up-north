@@ -31,20 +31,20 @@ const TYPE_META = {
 const kind = computed(() => TYPE_META[props.item.type] || { label: props.item.type || 'Place', pill: 'bg-white/10 text-white/80 ring-1 ring-inset ring-white/20', icon: MapPinIcon })
 
 const imgSrc = computed(() => {
-  const raw = props.item.image || props.item.hero_image || '/images/venture.jpeg'
+    const raw = props.item.image || props.item.hero_image || '/images/venture.jpeg'
 
-  // if it already starts with /public/storage/, just return as is
-  if (raw.startsWith('/public/storage/')) {
-    return raw
-  }
+    // if it already starts with /public/storage/, just return as is
+    if (raw.startsWith('/public/storage/')) {
+        return raw
+    }
 
-  // if it’s an absolute URL (http/https), don’t prepend
-  if (/^https?:\/\//i.test(raw)) {
-    return raw
-  }
+    // if it’s an absolute URL (http/https), don’t prepend
+    if (/^https?:\/\//i.test(raw)) {
+        return raw
+    }
 
-  // otherwise prepend /public/storage/
-  return `/public/storage/${raw.replace(/^\/+/, '')}`
+    // otherwise prepend /public/storage/
+    return `/public/storage/${raw.replace(/^\/+/, '')}`
 })
 const title = computed(() => props.item.title || props.item.name || 'Untitled')
 const url = computed(() => props.item.url || '#')
@@ -67,7 +67,12 @@ const ctas = computed(() => {
         arr.push({ href: `/experience/book/${slug}`, label: 'Book Now', external: true })
     }
     if (t === 'tour' && slug) {
-        arr.push({ href: `/tours/book/${slug}`, label: 'Book Now', external: true })
+        const href =
+            props.item.affiliates === 'fareharbour' && props.item.rezdy_url
+                ? props.item.rezdy_url
+                : `/tours/book/${slug}`
+
+        arr.push({ href, label: 'Book Now', external: true })
     }
     if (t === 'event' && slug) {
         arr.push({ href: `/event/${slug}`, label: `Explore Event` })
@@ -160,8 +165,7 @@ console.log(props.item)
         <!-- ✅ Tags block (centered, not touching edges) -->
         <div v-if="item.tags?.length && item.type === 'listing'"
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
-            <Link v-for="tag in item.tags" :key="tag.id"
-                :href="`/explore/${cat_url}#${tag.slug || slugify(tag.name)}`"
+            <Link v-for="tag in item.tags" :key="tag.id" :href="`/explore/${cat_url}#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
             {{ tag.name }}
             </Link>

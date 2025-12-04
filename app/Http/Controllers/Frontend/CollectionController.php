@@ -88,6 +88,8 @@ class CollectionController extends Controller
                 'slug' => $t->slug,
                 'image' => '/public/storage/' . $t->image,
                 'price' => $t->price,
+                'affiliates' => $t->affiliates,
+                'rezdy_url' => $t->rezdy_url,
                 'tags' => $t->tags->map(fn($tag) => [
                     'id' => $tag->id,
                     'name' => $tag->name,

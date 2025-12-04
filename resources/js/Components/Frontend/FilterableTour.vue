@@ -32,7 +32,9 @@
                             title: item.title,
                             url: item.slug,
                             image: item.image,
-                            tags: item.tags
+                            tags: item.tags,
+                            affiliates: item.affiliates,
+                            rezdy_url:item.rezdy_url
                         }" iconOnly />
                     </div>
 
@@ -50,7 +52,7 @@
                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
                             <TileShare :url="item.affiliates === 'fareharbour'
-                                ? item.rezdy_url
+                                ? `https://ventureupnorth.com.au/tours`
                                 : `https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
                                 :text="truncateWords(item.summary, 20)" @click.stop.prevent />
 
