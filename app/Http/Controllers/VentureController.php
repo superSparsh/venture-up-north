@@ -197,7 +197,7 @@ class VentureController extends Controller
                 ->route('ventures.your', $venture->slug)
                 ->with([
                     'success' => 'Venture saved successfully',
-                    'clear_local' => true, 
+                    'clear_local' => true,
                 ]);
 
             if ($ownerToken) {
@@ -213,10 +213,20 @@ class VentureController extends Controller
         $venture = Venture::with(['days', 'items'])->where('slug', $slug)->firstOrFail();
         return Inertia::render('Ventures/Show', [
             'seo' => [
-                'title' => $venture->seo_title,
-                'description' => $venture->seo_description,
-                'image' => '/public/storage/' . $venture->og_image_url,
-                'canonical' => canonical_url('/ventures/' . $venture->slug),
+                // If seo_title missing → use venture.title
+                'title' => $venture->seo_title ?: $venture->title,
+
+                // If seo_description missing → use venture.summary
+                'description' => $venture->seo_description ?: $venture->summary,
+
+                // If og_image_url missing → use default image
+                'image' => $venture->og_image_url
+                    ? asset('storage/' . $venture->og_image_url)
+                    : asset('public/images/Venture-Up-North.png'),
+
+                // Static canonical URL (no helper)
+                'canonical' => 'https://ventureupnorth.com.au/ventures/' . $venture->slug,
+
                 'robots' => 'index, follow',
                 'type' => 'website',
             ],

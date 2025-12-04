@@ -169,7 +169,7 @@ class HomeController extends Controller
             'towns' => Town::select('id', 'slug', 'name')->get(),
             'experiences' => Experience::select('id', 'slug', 'name')->get(),
             'posts' => VentureMagazine::select('id', 'slug', 'title')->get(),
-            'tours' => TourTile::select('id', 'slug', 'title')->get(),
+            'tours' => TourTile::select('id', 'slug', 'title','affiliates','rezdy_url')->get(),
             'events' => Event::upcoming()->select('id', 'slug', 'name')->get(),
             'contents' => ThingsToDoCategory::select('id', 'slug', 'name')->get(),
             'content_listings' => ThingsToDoItem::with(['category:id,slug'])->select('id', 'slug', 'title', 'category_id')->get(),
