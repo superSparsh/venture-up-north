@@ -1,9 +1,10 @@
 <script setup>
 import { Menu, X, Search, Facebook, Instagram, Mail, Heart } from 'lucide-vue-next'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 import MegaMenu from '../MegaMenu.vue'
 import { Link } from '@inertiajs/vue3'
 import SearchDropdown from '../SearchDropdown.vue'
+import { useMyVenture } from '@/Composables/useMyVenture'
 
 const props = defineProps({
     towns: Array,
@@ -36,6 +37,13 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
     document.removeEventListener('click', handleClickOutside)
+})
+
+const { items } = useMyVenture()
+
+const ventureCount = computed(() => {
+    const arr = items.value
+    return Array.isArray(arr) ? arr.length : 0
 })
 </script>
 
@@ -86,12 +94,24 @@ onUnmounted(() => {
                 <!-- Search Wrapper -->
                 <SearchDropdown :scrolled="scrolled" :menuOpen="menuOpen" />
 
-                <!-- My Venture -->
-                <a class="md:inline" href="/my-venture">
+                <a href="/my-venture" rel="noopener noreferrer" class="relative inline-flex items-center">
+
                     <Heart :class="[
+                        // sizing
                         'w-7 h-7 md:w-6 md:h-6 transition hover:text-teal-200',
-                        scrolled ? 'text-heavy' : 'text-white'
-                    ]" />
+
+                        // color logic → defines the color of fill
+                        ventureCount > 0
+                            ? 'text-red-500'
+                            : (scrolled ? 'text-heavy' : 'text-white')
+                    ]" :stroke="ventureCount > 0 ? 'none' : 'currentColor'" :fill="ventureCount > 0 ? 'currentColor' : 'none'" />
+
+                    <!-- Count bubble -->
+                    <span v-if="ventureCount > 0" class="absolute -top-2 -right-2 min-w-[1.1rem] px-1 text-[0.65rem] leading-none
+font-semibold rounded-full bg-red-500 text-white flex items-center justify-center
+border border-white">
+                        {{ ventureCount }}
+                    </span>
                 </a>
 
                 <!-- Facebook (hide on mobile) -->
