@@ -38,6 +38,11 @@
                         }" iconOnly />
                     </div>
 
+                    <TileShare :url="item.affiliates === 'fareharbour'
+                                ? `https://ventureupnorth.com.au/tours`
+                                : `https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
+                                :text="truncateWords(item.summary, 20)" @click.stop.prevent />
+
                     <!-- Full clickable card -->
                     <a :href="item.affiliates === 'rezdy'
                         ? `/tours/book/${item.slug}`
@@ -51,10 +56,7 @@
                             <img :src="`/public/storage/${item.image}`" :alt="item.name"
                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                            <TileShare :url="item.affiliates === 'fareharbour'
-                                ? `https://ventureupnorth.com.au/tours`
-                                : `https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
-                                :text="truncateWords(item.summary, 20)" @click.stop.prevent />
+                           
 
                             <!-- Tags -->
                             <div v-if="item.tags?.length"
