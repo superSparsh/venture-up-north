@@ -1,5 +1,5 @@
 <script setup>
-import { Head,Link } from '@inertiajs/vue3'
+import { Head, Link } from '@inertiajs/vue3'
 import Layout from '@/layouts/FrontendLayout.vue'
 
 const props = defineProps({
@@ -84,9 +84,13 @@ const props = defineProps({
                     <h2 class="text-xl font-bold mb-4 text-teal-700 border-b pb-2 text-bison">Tours</h2>
                     <ul class="space-y-2 text-sm">
                         <li v-for="tour in tours" :key="tour.id">
-                            <Link :href="`/tours/book/${tour.slug}`"
-                                class="hover:text-teal-600 hover:underline text-heavy font-semibold">{{ tour.title
-                                }}</Link>
+
+                            <Link :href="tour.affiliates === 'fareharbour'
+                                ? tour.rezdy_url
+                                : `/tours/book/${tour.slug}`" class="hover:text-teal-600 hover:underline text-heavy font-semibold">
+                            {{ tour.title }}
+                            </Link>
+
                         </li>
                     </ul>
                 </div>
