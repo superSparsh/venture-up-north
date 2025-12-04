@@ -51,7 +51,7 @@
 
                             <TileShare :url="item.affiliates === 'fareharbour'
                                 ? item.rezdy_url
-                                : `https://venturedownsouth.com.au/tours/book/${item.slug}`" :title="item.title"
+                                : `https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
                                 :text="truncateWords(item.summary, 20)" @click.stop.prevent />
 
                             <!-- Tags -->
