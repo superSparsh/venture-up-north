@@ -34,21 +34,15 @@
                             image: item.image,
                             tags: item.tags,
                             affiliates: item.affiliates,
-                            rezdy_url:item.rezdy_url
+                            rezdy_url: item.rezdy_url
                         }" iconOnly />
                     </div>
 
-                    <TileShare :url="item.affiliates === 'fareharbour'
-                                ? `https://ventureupnorth.com.au/tours`
-                                : `https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
-                                :text="truncateWords(item.summary, 20)" @click.stop.prevent />
+                    <TileShare :url="`https://ventureupnorth.com.au/tours/book/${item.slug}`" :title="item.title"
+                        :text="truncateWords(item.summary, 20)" @click.stop.prevent />
 
                     <!-- Full clickable card -->
-                    <a :href="item.affiliates === 'rezdy'
-                        ? `/tours/book/${item.slug}`
-                        : item.rezdy_url" :class="item.affiliates === 'fareharbour'
-                            ? 'fh-book-button block group'
-                            : 'block group'">
+                    <a :href="`/tours/book/${item.slug}`" class="block group">
 
                         <!-- Card Content -->
                         <div
@@ -56,7 +50,7 @@
                             <img :src="`/public/storage/${item.image}`" :alt="item.name"
                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
-                           
+
 
                             <!-- Tags -->
                             <div v-if="item.tags?.length"
@@ -64,22 +58,32 @@
                                 <Link v-for="tag in item.tags" :key="tag.id"
                                     :href="`/tours#${tag.slug || slugify(tag.name)}`" class="text-white text-sm font-semibold px-2 py-1 rounded-full
                         backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-                                {{ tag.name }}
+                                    {{ tag.name }}
                                 </Link>
                             </div>
 
                             <!-- Hover Summary -->
-                            <div
+                            <!-- <div
                                 class="absolute inset-0 bg-black/70 text-white z-[10] opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col items-center justify-center text-center space-y-4">
                                 <p class="text-md leading-relaxed">
                                     {{ truncateWords(item.summary, 30) }}
                                 </p>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Outside content -->
                         <div class="mt-3 px-1 cursor-pointer">
-                            <h3 class="text-xl tracking-wide font-bold text-bison">
+                            <!-- Price Display -->
+                            <div v-if="item.custom_fields" class="mb-3">
+                                <template v-for="(field, i) in item.custom_fields" :key="i">
+                                    <div v-if="field.label && field.label.toLowerCase().includes('price')"
+                                        class="text-xl tracking-wide font-bold text-bison">
+                                        Price: {{ field.value }}
+                                    </div>
+                                </template>
+                            </div>
+
+                            <h3 class="text-lg tracking-wide font-bold text-white">
                                 {{ item.title }}
                             </h3>
 
@@ -87,7 +91,7 @@
                                 <template v-for="(town, index) in item.towns" :key="town.id">
                                     <Link :href="`/town/${town.slug}`" class="hover:underline hover:text-bison hover:font-bold mr-2
                             text-gray-600 transition" @click.stop target="_blank" rel="noopener">
-                                    {{ town.name.toUpperCase() }}
+                                        {{ town.name.toUpperCase() }}
                                     </Link>
                                     <span v-if="index < item.towns.length - 1" class="text-gray-400 mr-2">|</span>
                                 </template>

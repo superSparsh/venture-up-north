@@ -85,10 +85,9 @@ const props = defineProps({
                     <ul class="space-y-2 text-sm">
                         <li v-for="tour in tours" :key="tour.id">
 
-                            <Link :href="tour.affiliates === 'fareharbour'
-                                ? tour.rezdy_url
-                                : `/tours/book/${tour.slug}`" class="hover:text-teal-600 hover:underline text-heavy font-semibold">
-                            {{ tour.title }}
+                            <Link :href="`/tours/book/${tour.slug}`"
+                                class="hover:text-teal-600 hover:underline text-heavy font-semibold">
+                                {{ tour.title }}
                             </Link>
 
                         </li>

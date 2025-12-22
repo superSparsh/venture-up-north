@@ -146,16 +146,14 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
                                 class="absolute bottom-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col gap-3 w-full px-6">
                                 <Link v-if="item.type === 'event'" :href="`/event/${item.slug}`"
                                     class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
-                                About {{ item.name }}
+                                    About {{ item.name }}
                                 </Link>
                                 <Link v-else-if="item.type === 'listing'"
                                     :href="`/explore/${item.category?.slug ?? 'unknown'}/${item.slug}`"
                                     class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
-                                About {{ item.name }}
+                                    About {{ item.name }}
                                 </Link>
-                                <a v-else-if="item.type === 'tour'" :href="item.affiliates === 'fareharbour'
-                                    ? item.rezdy_url
-                                    : `/tours/book/${item.slug}`"
+                                <a v-else-if="item.type === 'tour'" :href="`/tours/book/${item.slug}`"
                                     class="bg-envy text-heavy font-semibold py-2 rounded-full text-sm text-center shadow hover:bg-bison hover:text-heavy transition">
                                     Book Now
                                 </a>

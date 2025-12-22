@@ -68,7 +68,7 @@ function closeBookingModal() {
                 <!-- Contact Information with bottom border -->
                 <div class="pb-8 border-b border-solid border-gray-300 mb-8">
                     <h3 class="text-lg font-bold mb-4">Contact Information</h3>
-                    <ul class="space-y-2 text-sm">
+                    <ul class="space-y-2 text-md font-bold">
                         <li v-if="contact.email">
                             ✉️ Email:
                             <a :href="`mailto:${contact.email}`" class="hover:text-teal-300">
@@ -102,17 +102,17 @@ function closeBookingModal() {
                     <!-- Buttons -->
                     <div class="space-y-10">
                         <Link href="/contact">
-                        <button
-                            class="bg-bison text-heavy px-6 py-2 mb-3 rounded font-bold text-base w-full hover:bg-white transition">
-                            Contact Us
-                        </button>
+                            <button
+                                class="bg-bison text-heavy px-6 py-2 mb-3 rounded font-bold text-base w-full hover:bg-white transition">
+                                Contact Us
+                            </button>
                         </Link>
 
                         <Link href="/login">
-                        <button
-                            class="bg-bison text-heavy px-6 py-2 rounded font-bold text-base w-full hover:bg-white transition">
-                            Login
-                        </button>
+                            <button
+                                class="bg-bison text-heavy px-6 py-2 rounded font-bold text-base w-full hover:bg-white transition">
+                                Login
+                            </button>
                         </Link>
                     </div>
                 </div>
@@ -130,8 +130,7 @@ function closeBookingModal() {
 
             <!-- Column 3 -->
             <div data-aos="fade-up">
-                <a href="https://tidd.ly/3FzY8fq" target="_blank" rel="noopener sponsored"
-                    class="mb-5">
+                <a href="https://tidd.ly/3FzY8fq" target="_blank" rel="noopener sponsored" class="mb-5">
                     <!-- Accommodation Booking Service -->
                     <img src="/public/images/Flights&Accommodation.png" alt="Flights & Accommodation Service"
                         class="object-cover mb-5 w-full" />
@@ -156,7 +155,8 @@ function closeBookingModal() {
                 <div class="w-full">
                     <img src="/public/images/venture.jpeg" alt="Footer Logo"
                         class="w-[115px] h-auto object-contain mb-8" />
-                        <p class="text-lg mb-8">If you'd like to <a href="https://venturedownsouth.com.au" class="text-bison">Venture Down South</a></p>
+                    <p class="text-lg mb-8">If you'd like to <a href="https://venturedownsouth.com.au"
+                            class="text-bison">Venture Down South</a></p>
                     <p class="text-sm mb-2">Subscribe to stay updated with the latest from the Venture Up North.
                     </p>
                     <!-- Right: Mailchimp Form -->

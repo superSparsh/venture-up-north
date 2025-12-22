@@ -31,6 +31,7 @@ class RezdyBookingController extends Controller
             'title' => $town->name,
             'slug' => $town->slug,
             'rezdy_url' => $town->rezdy_url,
+            'affiliates' => $town->affiliates ?? 'rezdy',
             'big_hero_image' => $town->big_hero_image
                 ? '/public/storage/' . $town->big_hero_image
                 : null,
@@ -38,6 +39,18 @@ class RezdyBookingController extends Controller
             'seo_description' => $town->seo_description,
             'seo_image' => $town->seo_image,
             'base_path' => 'venture/book',
+            // Town specific text
+            'summary' => $town->summary ?? null,
+            'content' => $town->description ?? null,
+            // Defaults for fields not present in Town
+            'location' => null,
+            'address' => null,
+            'opening_times' => null,
+            'email' => null,
+            'phone_number' => null,
+            'video' => null,
+            'custom_fields' => [],
+            'social_links' => [],
         ]);
     }
 
@@ -57,6 +70,7 @@ class RezdyBookingController extends Controller
             'title' => $experience->name,
             'slug' => $experience->slug,
             'rezdy_url' => $experience->rezdy_url,
+            'affiliates' => $experience->affiliates ?? 'rezdy',
             'big_hero_image' => $experience->big_hero_image
                 ? '/public/storage/' . $experience->big_hero_image
                 : null,
@@ -64,6 +78,18 @@ class RezdyBookingController extends Controller
             'seo_description' => $experience->seo_description,
             'seo_image' => $experience->seo_image,
             'base_path' => 'experience/book',
+            // Experience specific text
+            'summary' => $experience->summary ?? null,
+            'content' => $experience->description ?? null,
+            // Defaults for fields not present in Experience
+            'location' => null,
+            'address' => null,
+            'opening_times' => null,
+            'email' => null,
+            'phone_number' => null,
+            'video' => null,
+            'custom_fields' => [],
+            'social_links' => [],
         ]);
     }
 
@@ -83,6 +109,7 @@ class RezdyBookingController extends Controller
             'title' => $tourTile->title,
             'slug' => $tourTile->slug,
             'rezdy_url' => $tourTile->rezdy_url,
+            'affiliates' => $tourTile->affiliates ?? 'rezdy',
             'big_hero_image' => $tourTile->big_hero_image
                 ? '/public/storage/' . $tourTile->big_hero_image
                 : null,
@@ -90,6 +117,17 @@ class RezdyBookingController extends Controller
             'seo_description' => $tourTile->seo_description,
             'seo_image' => $tourTile->seo_image,
             'base_path' => 'tours/book',
+            // Full TourTile details
+            'summary' => $tourTile->summary,
+            'content' => $tourTile->content,
+            'location' => $tourTile->location,
+            'address' => $tourTile->address,
+            'opening_times' => $tourTile->opening_times,
+            'email' => $tourTile->email,
+            'phone_number' => $tourTile->phone_number,
+            'video' => $tourTile->video,
+            'custom_fields' => $tourTile->custom_fields,
+            'social_links' => $tourTile->social_links,
         ]);
     }
 }

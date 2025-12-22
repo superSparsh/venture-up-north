@@ -67,10 +67,7 @@ const ctas = computed(() => {
         arr.push({ href: `/experience/book/${slug}`, label: 'Book Now', external: true })
     }
     if (t === 'tour' && slug) {
-        const href =
-            props.item.affiliates === 'fareharbour' && props.item.rezdy_url
-                ? props.item.rezdy_url
-                : `/tours/book/${slug}`
+        const href = `/tours/book/${slug}`
 
         arr.push({ href, label: 'Book Now', external: true })
     }
@@ -131,7 +128,7 @@ console.log(props.item)
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
             <Link v-for="tag in item.tags" :key="tag.id" :href="`/tours#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-            {{ tag.name }}
+                {{ tag.name }}
             </Link>
         </div>
 
@@ -140,7 +137,7 @@ console.log(props.item)
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
             <Link v-for="tag in item.tags" :key="tag.id" :href="`/tours#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-            {{ tag.name }}
+                {{ tag.name }}
             </Link>
         </div>
 
@@ -149,7 +146,7 @@ console.log(props.item)
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
             <Link v-for="tag in item.tags" :key="tag.id" :href="`/tours#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-            {{ tag.name }}
+                {{ tag.name }}
             </Link>
         </div>
 
@@ -158,7 +155,7 @@ console.log(props.item)
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
             <Link v-for="tag in item.tags" :key="tag.id" :href="`/events#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-            {{ tag.name }}
+                {{ tag.name }}
             </Link>
         </div>
 
@@ -167,7 +164,7 @@ console.log(props.item)
             class="absolute top-4 left-4 right-16 flex flex-wrap gap-2 z-30">
             <Link v-for="tag in item.tags" :key="tag.id" :href="`/explore/${cat_url}#${tag.slug || slugify(tag.name)}`"
                 class="text-white text-sm font-semibold px-2 py-1 rounded-full tracking-small backdrop-blur-sm bg-black/40 shadow hover:bg-bison hover:text-white transition">
-            {{ tag.name }}
+                {{ tag.name }}
             </Link>
         </div>
 
@@ -187,7 +184,7 @@ console.log(props.item)
                     <template v-for="(cta, i) in ctas" :key="i">
                         <Link v-if="!cta.external" :href="cta.href" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-heavy
                          hover:bg-envy hover:text-white transition shadow">
-                        {{ cta.label }}
+                            {{ cta.label }}
                         </Link>
                         <a v-else :href="cta.href" target="_blank" rel="noopener" class="px-3 py-1.5 rounded-full text-xs font-semibold bg-white text-heavy
                       hover:bg-envy hover:text-white transition shadow inline-flex items-center gap-1">
