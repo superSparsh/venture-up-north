@@ -28,7 +28,7 @@ const edjsParser = EditorJSHTML({
         return `
       <a href="${link}" target="_blank" rel="noopener noreferrer" class="block p-4 rounded hover:shadow transition bg-white no-underline">
         <div class="text-lg font-semibold text-blue-600">${title}</div>
-        ${imageUrl ? `<img src="${imageUrl}" class="mt-2 object-contain rounded" />` : ''}
+        ${imageUrl ? `<img src="${imageUrl}" loading="lazy" class="mt-2 object-contain rounded" />` : ''}
       </a>
     `
     }
@@ -55,14 +55,13 @@ const renderedDescription = computed(() => {
     <Layout>
 
         <Head title="Tours" />
-        <SeoMeta :title="`Explore ${tour.name} - Venture Up North`" :description="tour.summary"
-            :image="tour.seo_image" :canonical="`https://ventureupnorth.com/tours`"
-            :index="true" :follow="true" />
+        <SeoMeta :title="`Explore ${tour.name} - Venture Up North`" :description="tour.summary" :image="tour.seo_image"
+            :canonical="`https://ventureupnorth.com/tours`" :index="true" :follow="true" />
 
         <!-- Hero Section -->
         <section class="relative w-full h-screen overflow-hidden text-white">
             <!-- Background Image -->
-            <img :src="tour.big_hero_image" :alt="tour.name"
+            <img :src="tour.big_hero_image" :alt="tour.name" fetchpriority="high"
                 class="absolute inset-0 w-full h-full object-cover z-0" />
 
             <!-- Dark overlay (optional for better text readability) -->
@@ -87,13 +86,12 @@ const renderedDescription = computed(() => {
                 </div>
             </div>
             <div class="component component-text lg:w-3/4 xl:w-1/2 lg:mx-auto px-5 lg:px-0 mt-8 lg:mt-10">
-                <article
-                    class="prose prose-lg text-heavy text-lg font-semibold tracking-small leading-6"
+                <article class="prose prose-lg text-heavy text-lg font-semibold tracking-small leading-6"
                     v-html="renderedDescription">
                 </article>
             </div>
         </section>
-        <FilterableTour :api-route="`/api/tours`" :tags="tags" :towns="towns"
-            :tour="tour" :initialItems="initialItems" />
+        <FilterableTour :api-route="`/api/tours`" :tags="tags" :towns="towns" :tour="tour"
+            :initialItems="initialItems" />
     </Layout>
 </template>

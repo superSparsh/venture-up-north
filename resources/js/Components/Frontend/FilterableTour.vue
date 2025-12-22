@@ -47,7 +47,7 @@
                         <!-- Card Content -->
                         <div
                             class="relative overflow-hidden rounded-xl shadow-lg transition duration-300 hover:shadow-xl group">
-                            <img :src="`/public/storage/${item.image}`" :alt="item.name"
+                            <img :src="`/public/storage/${item.image}`" :alt="item.name" loading="lazy"
                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105" />
 
 

@@ -128,7 +128,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
                     <div
                         class="relative overflow-hidden rounded-xl shadow-lg bg-black/30 group-hover:bg-black/50 transition duration-500 h-96 ">
-                        <img :src="item.image || item.hero_image" :alt="item.name || item.title"
+                        <img :src="item.image || item.hero_image" :alt="item.name || item.title" loading="lazy"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
                         <!-- Tags -->

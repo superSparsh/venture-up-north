@@ -48,20 +48,20 @@ class TownController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTownRequest $request)
+    public function store(StoreTownRequest $request, \App\Services\ImageOptimizer $optimizer)
     {
         $validated = $request->validated();
 
         if ($request->hasFile('hero_image')) {
-            $validated['hero_image'] = $request->file('hero_image')->store('towns/hero', 'public');
+            $validated['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'towns/hero', 'public');
         }
 
         if ($request->hasFile('big_hero_image')) {
-            $validated['big_hero_image'] = $request->file('big_hero_image')->store('towns/big_hero', 'public');
+            $validated['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'towns/big_hero', 'public');
         }
 
         if ($request->hasFile('seo_image')) {
-            $validated['seo_image'] = $request->file('seo_image')->store('towns/seo', 'public');
+            $validated['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'towns/seo', 'public');
         }
 
         // ✅ Generate slug
@@ -106,7 +106,7 @@ class TownController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTownRequest $request, Town $town)
+    public function update(UpdateTownRequest $request, Town $town, \App\Services\ImageOptimizer $optimizer)
     {
         $validated = $request->validated();
 
@@ -114,7 +114,7 @@ class TownController extends Controller
             if ($town->hero_image) {
                 Storage::disk('public')->delete($town->hero_image);
             }
-            $validated['hero_image'] = $request->file('hero_image')->store('towns/hero', 'public');
+            $validated['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'towns/hero', 'public');
         } else {
             $validated['hero_image'] = $town->hero_image;
         }
@@ -123,7 +123,7 @@ class TownController extends Controller
             if ($town->big_hero_image) {
                 Storage::disk('public')->delete($town->big_hero_image);
             }
-            $validated['big_hero_image'] = $request->file('big_hero_image')->store('towns/big_hero', 'public');
+            $validated['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'towns/big_hero', 'public');
         } else {
             $validated['big_hero_image'] = $town->big_hero_image;
         }
@@ -132,7 +132,7 @@ class TownController extends Controller
             if ($town->seo_image) {
                 Storage::disk('public')->delete($town->seo_image);
             }
-            $validated['seo_image'] = $request->file('seo_image')->store('towns/seo', 'public');
+            $validated['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'towns/seo', 'public');
         } else {
             $validated['seo_image'] = $town->seo_image;
         }

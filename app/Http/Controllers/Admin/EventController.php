@@ -67,20 +67,20 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreEventRequest $request)
+    public function store(StoreEventRequest $request, \App\Services\ImageOptimizer $optimizer)
     {
         $validated = $request->validated();
 
         if ($request->hasFile('hero_image')) {
-            $validated['hero_image'] = $request->file('hero_image')->store('events/hero', 'public');
+            $validated['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'events/hero', 'public');
         }
 
         if ($request->hasFile('big_hero_image')) {
-            $validated['big_hero_image'] = $request->file('big_hero_image')->store('events/big_hero', 'public');
+            $validated['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'events/big_hero', 'public');
         }
 
         if ($request->hasFile('seo_image')) {
-            $validated['seo_image'] = $request->file('seo_image')->store('events/seo', 'public');
+            $validated['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'events/seo', 'public');
         }
 
         // ✅ Generate slug
@@ -158,7 +158,7 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEventRequest $request, Event $event)
+    public function update(UpdateEventRequest $request, Event $event, \App\Services\ImageOptimizer $optimizer)
     {
         $validated = $request->validated();
 
@@ -166,7 +166,7 @@ class EventController extends Controller
             if ($event->hero_image) {
                 Storage::disk('public')->delete($event->hero_image);
             }
-            $validated['hero_image'] = $request->file('hero_image')->store('events/hero', 'public');
+            $validated['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'events/hero', 'public');
         } else {
             $validated['hero_image'] = $event->hero_image;
         }
@@ -175,7 +175,7 @@ class EventController extends Controller
             if ($event->big_hero_image) {
                 Storage::disk('public')->delete($event->big_hero_image);
             }
-            $validated['big_hero_image'] = $request->file('big_hero_image')->store('events/big_hero', 'public');
+            $validated['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'events/big_hero', 'public');
         } else {
             $validated['big_hero_image'] = $event->big_hero_image;
         }
@@ -184,7 +184,7 @@ class EventController extends Controller
             if ($event->seo_image) {
                 Storage::disk('public')->delete($event->seo_image);
             }
-            $validated['seo_image'] = $request->file('seo_image')->store('events/seo', 'public');
+            $validated['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'events/seo', 'public');
         } else {
             $validated['seo_image'] = $event->seo_image;
         }
@@ -250,7 +250,7 @@ class EventController extends Controller
         ]);
     }
 
-    public function updateSetting(Request $request)
+    public function updateSetting(Request $request, \App\Services\ImageOptimizer $optimizer)
     {
         $data = $request->validate([
             'name' => 'required|string|max:255',
@@ -270,7 +270,7 @@ class EventController extends Controller
             if ($setting->hero_image) {
                 Storage::disk('public')->delete($setting->hero_image);
             }
-            $data['hero_image'] = $request->file('hero_image')->store('events_setting/hero', 'public');
+            $data['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'events_setting/hero', 'public');
         } else {
             $data['hero_image'] = $setting->hero_image;
         }
@@ -279,7 +279,7 @@ class EventController extends Controller
             if ($setting->big_hero_image) {
                 Storage::disk('public')->delete($setting->big_hero_image);
             }
-            $data['big_hero_image'] = $request->file('big_hero_image')->store('events_setting/big_hero', 'public');
+            $data['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'events_setting/big_hero', 'public');
         } else {
             $data['big_hero_image'] = $setting->big_hero_image;
         }
@@ -288,7 +288,7 @@ class EventController extends Controller
             if ($setting->seo_image) {
                 Storage::disk('public')->delete($setting->seo_image);
             }
-            $data['seo_image'] = $request->file('seo_image')->store('events_setting/seo_image', 'public');
+            $data['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'events_setting/seo_image', 'public');
         } else {
             $data['seo_image'] = $setting->seo_image;
         }
@@ -375,7 +375,7 @@ class EventController extends Controller
         $event->approve($request->note, auth()->id()); // if you added the trait method
 
         if ($event->user && $event->user->contributor) {
-            $event->user->notify(new EventApprovedNotification($event,$request->note));
+            $event->user->notify(new EventApprovedNotification($event, $request->note));
         }
         return  redirect()
             ->route('admin.events.contributors')->with('success', 'Approved and published.');

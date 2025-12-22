@@ -64,7 +64,7 @@ class VentureMagazineController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreVentureMagazineRequest $request)
+    public function store(StoreVentureMagazineRequest $request, \App\Services\ImageOptimizer $optimizer)
     {
         $data = $request->validated();
 
@@ -83,15 +83,15 @@ class VentureMagazineController extends Controller
 
         // Upload images
         if ($request->hasFile('hero_image')) {
-            $data['hero_image'] = $request->file('hero_image')->store('magazine/hero', 'public');
+            $data['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'magazine/hero', 'public');
         }
 
         if ($request->hasFile('big_hero_image')) {
-            $data['big_hero_image'] = $request->file('big_hero_image')->store('magazine/big_hero', 'public');
+            $data['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'magazine/big_hero', 'public');
         }
 
         if ($request->hasFile('seo_image')) {
-            $data['seo_image'] = $request->file('seo_image')->store('magazine/seo', 'public');
+            $data['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'magazine/seo', 'public');
         }
 
         $data['published_at'] = $request->boolean('is_published') ? now() : null;
@@ -139,7 +139,7 @@ class VentureMagazineController extends Controller
                 'accepted' => (bool) $agreementsRaw[$i],
             ];
         }
-    
+
         return Inertia::render('Admin/VentureMagazines/Edit', [
             'magazine' => array_merge(
                 $ventureMagazine->toArray(),
@@ -163,7 +163,7 @@ class VentureMagazineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVentureMagazineRequest $request, VentureMagazine $ventureMagazine)
+    public function update(UpdateVentureMagazineRequest $request, VentureMagazine $ventureMagazine, \App\Services\ImageOptimizer $optimizer)
     {
         $data = $request->validated();
 
@@ -184,7 +184,7 @@ class VentureMagazineController extends Controller
             if ($ventureMagazine->hero_image) {
                 Storage::disk('public')->delete($ventureMagazine->hero_image);
             }
-            $data['hero_image'] = $request->file('hero_image')->store('magazine/hero', 'public');
+            $data['hero_image'] = $optimizer->optimizeAndStore($request->file('hero_image'), 'magazine/hero', 'public');
         } else {
             $data['hero_image'] = $ventureMagazine->hero_image;
         }
@@ -194,7 +194,7 @@ class VentureMagazineController extends Controller
             if ($ventureMagazine->big_hero_image) {
                 Storage::disk('public')->delete($ventureMagazine->big_hero_image);
             }
-            $data['big_hero_image'] = $request->file('big_hero_image')->store('magazine/big_hero', 'public');
+            $data['big_hero_image'] = $optimizer->optimizeAndStore($request->file('big_hero_image'), 'magazine/big_hero', 'public');
         } else {
             $data['big_hero_image'] = $ventureMagazine->big_hero_image;
         }
@@ -204,7 +204,7 @@ class VentureMagazineController extends Controller
             if ($ventureMagazine->seo_image) {
                 Storage::disk('public')->delete($ventureMagazine->seo_image);
             }
-            $data['seo_image'] = $request->file('seo_image')->store('magazine/seo', 'public');
+            $data['seo_image'] = $optimizer->optimizeAndStore($request->file('seo_image'), 'magazine/seo', 'public');
         } else {
             $data['seo_image'] = $ventureMagazine->seo_image;
         }
@@ -397,14 +397,14 @@ class VentureMagazineController extends Controller
         ]);
     }
 
-    public function approve(Request $request,VentureMagazine $magazine)
+    public function approve(Request $request, VentureMagazine $magazine)
     {
         $request->validate(['note' => 'nullable|string|max:1000']);
         // apply pending_payload if present, set status approved & published_at, notify contributor
         $magazine->approve(auth()->id()); // if you added the trait method
 
         if ($magazine->realContributor && $magazine->realContributor->user) {
-            $magazine->realContributor->user->notify(new MagazineApprovedNotification($magazine,$request->note));
+            $magazine->realContributor->user->notify(new MagazineApprovedNotification($magazine, $request->note));
         }
         return  redirect()
             ->route('admin.venture-magazines.contributors')->with('success', 'Approved and published.');
