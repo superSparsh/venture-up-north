@@ -130,7 +130,7 @@ const loading = ref(true)
 
                         <!-- Action Card -->
                         <div v-if="affiliates === 'fareharbour'"
-                            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center mt-10 w-1/3 mx-auto">
+                            class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 text-center mt-10 lg:w-1/3 mx-auto">
                             <h3 class="text-xl font-bold text-heavy mb-4">Ready to Venture</h3>
 
                             <a :href="rezdy_url"
