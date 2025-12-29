@@ -109,7 +109,7 @@ const displayPrice = computed(() => {
                             <div class="space-y-6">
                                 <h1
                                     class="text-white text-2xl font-extrabold tracking-widest uppercase mt-[10rem] md:mt-0">
-                                    Treasures of Broome | Pearlmasters Choice Tour
+                                    {{ title }}
                                 </h1>
 
                                 <!-- Description with Glassmorphism and Price -->
