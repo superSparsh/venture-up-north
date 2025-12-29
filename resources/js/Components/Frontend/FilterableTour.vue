@@ -63,12 +63,12 @@
                             </div>
 
                             <!-- Hover Summary -->
-                            <!-- <div
+                            <div
                                 class="absolute inset-0 bg-black/70 text-white z-[10] opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col items-center justify-center text-center space-y-4">
                                 <p class="text-md leading-relaxed">
                                     {{ truncateWords(item.summary, 30) }}
                                 </p>
-                            </div> -->
+                            </div>
                         </div>
 
                         <!-- Outside content -->
