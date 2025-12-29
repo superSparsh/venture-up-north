@@ -130,7 +130,7 @@ const displayPrice = computed(() => {
                             </div>
 
                             <!-- Right: Booking Card with Glassmorphism -->
-                            <div class="flex justify-center lg:justify-end">
+                            <div class="flex justify-center lg:justify-end lg:self-center">
                                 <div
                                     class="backdrop-blur-md bg-white/90 p-8 rounded-2xl shadow-2xl border border-white/30 text-center w-full max-w-md">
                                     <h3 class="text-xl font-bold text-heavy mb-6">Ready to Venture</h3>
