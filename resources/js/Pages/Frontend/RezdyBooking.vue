@@ -108,7 +108,7 @@ const displayPrice = computed(() => {
                             <!-- Left: Title and Description -->
                             <div class="space-y-6">
                                 <h1
-                                    class="text-white text-2xl md:text-6xl font-extrabold tracking-widest uppercase mt-[10rem] md:mt-0">
+                                    class="text-white text-2xl md:text-2xl font-extrabold tracking-widest uppercase mt-[10rem] md:mt-0">
                                     Treasures of Broome | Pearlmasters Choice Tour
                                 </h1>
 
