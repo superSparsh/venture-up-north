@@ -94,7 +94,7 @@ const displayPrice = computed(() => {
             <!-- Header -->
 
             <!-- Hero Section -->
-            <section class="relative w-full h-screen overflow-hidden text-white">
+            <section class="relative w-full min-h-screen overflow-hidden text-white">
                 <!-- Background Image -->
                 <img :src="big_hero_image" :alt="title" class="absolute inset-0 w-full h-full object-cover z-0" />
 
@@ -102,27 +102,29 @@ const displayPrice = computed(() => {
                 <div class="absolute inset-0 bg-black/40 z-10"></div>
 
                 <!-- Content Wrapper -->
-                <div class="relative z-20 h-full flex items-center" data-aos="fade-up">
+                <div class="relative z-20 min-h-screen flex items-center py-24 md:py-20" data-aos="fade-up">
                     <div class="container mx-auto px-4">
-                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
                             <!-- Left: Title and Description -->
-                            <div class="space-y-6">
-                                <h1 class="text-white text-4xl md:text-6xl font-extrabold tracking-widest uppercase">
+                            <div class="space-y-4 md:space-y-6">
+                                <h1
+                                    class="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-widest uppercase leading-tight">
                                     {{ title }}
                                 </h1>
 
                                 <!-- Description with Glassmorphism and Price -->
                                 <div v-if="renderedDescription || displayPrice"
-                                    class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-6 shadow-2xl max-h-[500px] overflow-y-auto">
+                                    class="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-4 md:p-6 shadow-2xl max-h-[400px] md:max-h-[500px] overflow-y-auto">
 
                                     <!-- Price at the top -->
-                                    <div v-if="displayPrice" class="mb-4 pb-4 border-b border-white/30">
-                                        <p class="text-bison text-2xl md:text-3xl font-bold">{{ displayPrice }}</p>
+                                    <div v-if="displayPrice" class="mb-3 md:mb-4 pb-3 md:pb-4 border-b border-white/30">
+                                        <p class="text-bison text-xl md:text-2xl lg:text-3xl font-bold">{{ displayPrice
+                                            }}</p>
                                     </div>
 
                                     <!-- Description -->
                                     <article v-if="renderedDescription"
-                                        class="text-white text-base md:text-lg leading-relaxed"
+                                        class="text-white text-sm md:text-base lg:text-lg leading-relaxed"
                                         v-html="renderedDescription">
                                     </article>
                                 </div>
@@ -131,14 +133,15 @@ const displayPrice = computed(() => {
                             <!-- Right: Booking Card with Glassmorphism -->
                             <div class="flex justify-center lg:justify-end">
                                 <div
-                                    class="backdrop-blur-md bg-white/90 p-8 rounded-2xl shadow-2xl border border-white/30 text-center w-full max-w-md">
-                                    <h3 class="text-xl font-bold text-heavy mb-6">Ready to Venture</h3>
+                                    class="backdrop-blur-md bg-white/90 p-6 md:p-8 rounded-2xl shadow-2xl border border-white/30 text-center w-full max-w-md">
+                                    <h3 class="text-lg md:text-xl font-bold text-heavy mb-4 md:mb-6">Ready to Venture
+                                    </h3>
 
                                     <a :href="rezdy_url" target="_blank" rel="noopener noreferrer"
-                                        class="block w-full bg-bison hover:bg-heavy hover:text-bison text-heavy font-bold py-4 px-6 rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1">
+                                        class="block w-full bg-bison hover:bg-heavy hover:text-bison text-heavy font-bold py-3 md:py-4 px-4 md:px-6 rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1">
                                         Check Availability & Book
                                     </a>
-                                    <p class="mt-3 text-xs text-gray">*Opens secure booking window</p>
+                                    <p class="mt-2 md:mt-3 text-xs text-gray">*Opens secure booking window</p>
                                 </div>
                             </div>
                         </div>
