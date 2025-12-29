@@ -94,7 +94,7 @@ const displayPrice = computed(() => {
             <!-- Header -->
 
             <!-- Hero Section -->
-            <section class="relative w-full h-screen overflow-hidden text-white">
+            <section class="relative w-full h-auto md:h-screen overflow-hidden text-white">
                 <!-- Background Image -->
                 <img :src="big_hero_image" :alt="title" class="absolute inset-0 w-full h-full object-cover z-0" />
 
