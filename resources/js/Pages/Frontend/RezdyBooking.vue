@@ -102,13 +102,14 @@ const displayPrice = computed(() => {
                 <div class="absolute inset-0 bg-black/40 z-10"></div>
 
                 <!-- Content Wrapper -->
-                <div class="relative z-20 h-full flex items-center py-24" data-aos="fade-up">
+                <div class="relative z-20 h-full flex items-center py-32" data-aos="fade-up">
                     <div class="container mx-auto px-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                             <!-- Left: Title and Description -->
                             <div class="space-y-6">
-                                <h1 class="text-white text-2xl md:text-6xl font-extrabold tracking-widest uppercase">
-                                    {{ title }}
+                                <h1
+                                    class="text-white text-2xl md:text-6xl font-extrabold tracking-widest uppercase mt-[10rem] md:mt-0">
+                                    Treasures of Broome | Pearlmasters Choice Tour
                                 </h1>
 
                                 <!-- Description with Glassmorphism and Price -->
