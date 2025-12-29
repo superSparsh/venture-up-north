@@ -10,10 +10,10 @@
     [
     'title' => 'Venture Up North',
     'description' => 'Discover, Immerse, Connect.',
-    'image' => asset('images/Venture-Up-North.png'),
+    'image' => asset('/public/images/Venture-Up-North.png'),
     'keywords' =>
     'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North',
-    'canonical' => 'https://ventureupnorth.com.au' . Str::start(request()->getPathInfo(), '/'),
+    'canonical' => 'https://www.ventureupnorth.com.au' . Str::start(request()->getPathInfo(), '/'),
     'robots' => 'index, follow',
     'type' => 'website',
     ],
@@ -26,14 +26,14 @@
     <meta name="robots" content="{{ $seo['robots'] ?? 'index, follow' }}">
     <meta name="keywords"
         content="{{ $seo['keywords'] ?? 'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North' }}">
-    <link rel="canonical" href="{{ $seo['canonical'] ?? 'https://ventureupnorth.com.au' . request()->getRequestUri() }}">
+    <link rel="canonical" href="{{ $seo['canonical'] ?? ('https://www.ventureupnorth.com.au' . request()->getRequestUri()) }}">
 
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{ $seo['title'] ?? '' }}">
     <meta property="og:description" content="{{ $seo['description'] ?? '' }}">
     <meta property="og:image" content="{{ asset($seo['image']) ?? asset('/public/images/Venture-Up-North.png') }}">
-    <meta property="og:url" content="{{ $seo['canonical'] ?? 'https://ventureupnorth.com.au' . request()->getRequestUri() }}">
+    <meta property="og:url" content="{{ $seo['canonical'] ?? 'https://www.ventureupnorth.com.au' . request()->getRequestUri() }}">
     <meta property="og:type" content="{{ $seo['type'] ?? 'website' }}">
 
     <!-- Twitter Card -->
