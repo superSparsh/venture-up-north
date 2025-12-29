@@ -135,7 +135,7 @@ const displayPrice = computed(() => {
                                     class="backdrop-blur-md bg-white/90 p-8 rounded-2xl shadow-2xl border border-white/30 text-center w-full max-w-md">
                                     <h3 class="text-xl font-bold text-heavy mb-6">Ready to Venture</h3>
 
-                                    <a :href="rezdy_url" target="_blank" rel="noopener noreferrer"
+                                    <a :href="rezdy_url"
                                         class="block w-full bg-bison hover:bg-heavy hover:text-bison text-heavy font-bold py-4 px-6 rounded-xl shadow-md transition duration-300 transform hover:-translate-y-1">
                                         Check Availability & Book
                                     </a>
