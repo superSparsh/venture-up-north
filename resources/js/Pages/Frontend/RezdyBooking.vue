@@ -102,7 +102,7 @@ const displayPrice = computed(() => {
                 <div class="absolute inset-0 bg-black/40 z-10"></div>
 
                 <!-- Content Wrapper -->
-                <div class="relative z-20 h-full flex items-center" data-aos="fade-up">
+                <div class="relative z-20 h-full flex items-center py-24" data-aos="fade-up">
                     <div class="container mx-auto px-4">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                             <!-- Left: Title and Description -->
