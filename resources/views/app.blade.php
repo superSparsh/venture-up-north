@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     @php
-        $seo = array_merge(
-            [
-                'title' => 'Venture Up North',
-                'description' => 'Discover, Immerse, Connect.',
-                'image' => asset('images/Venture-Up-North.png'),
-                'keywords' =>
-                    'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North',
-                'canonical' => 'https://ventureupnorth.com.au' . Str::start(request()->getPathInfo(), '/'),
-                'robots' => 'index, follow',
-                'type' => 'website',
-            ],
-            (array) ($page['props']['seo'] ?? []),
-        );
+    $seo = array_merge(
+    [
+    'title' => 'Venture Up North',
+    'description' => 'Discover, Immerse, Connect.',
+    'image' => asset('images/Venture-Up-North.png'),
+    'keywords' =>
+    'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North',
+    'canonical' => 'https://ventureupnorth.com.au' . Str::start(request()->getPathInfo(), '/'),
+    'robots' => 'index, follow',
+    'type' => 'website',
+    ],
+    (array) ($page['props']['seo'] ?? []),
+    );
     @endphp
 
     <title inertia>{{ $seo['title'] ?? 'Venture Up North' }}</title>
@@ -26,14 +26,14 @@
     <meta name="robots" content="{{ $seo['robots'] ?? 'index, follow' }}">
     <meta name="keywords"
         content="{{ $seo['keywords'] ?? 'south west australia, margaret river, dunsborough, albany, things to do in wa, wine tours, whale watching, Venture Up North' }}">
-    <link rel="canonical" href="{{ $seo['canonical'] ?? canonical_url() }}">
+    <link rel="canonical" href="{{ $seo['canonical'] ?? 'https://ventureupnorth.com.au' . request()->getRequestUri() }}">
 
 
     <!-- Open Graph -->
     <meta property="og:title" content="{{ $seo['title'] ?? '' }}">
     <meta property="og:description" content="{{ $seo['description'] ?? '' }}">
     <meta property="og:image" content="{{ asset($seo['image']) ?? asset('/public/images/Venture-Up-North.png') }}">
-    <meta property="og:url" content="{{ $seo['canonical'] ?? canonical_url() }}">
+    <meta property="og:url" content="{{ $seo['canonical'] ?? 'https://ventureupnorth.com.au' . request()->getRequestUri() }}">
     <meta property="og:type" content="{{ $seo['type'] ?? 'website' }}">
 
     <!-- Twitter Card -->
@@ -49,20 +49,20 @@
     <!-- Standard Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('public/images/favicon.ico') }}">
     @if (request()->is('admin*'))
-        <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow">
     @else
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PRH9X4YN1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2PRH9X4YN1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
 
-            gtag('config', 'G-2PRH9X4YN1');
-        </script>
+        gtag('config', 'G-2PRH9X4YN1');
+    </script>
     @endif
     <!-- Scripts -->
     <script id="mcjs">
