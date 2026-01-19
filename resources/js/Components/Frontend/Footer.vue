@@ -130,7 +130,8 @@ function closeBookingModal() {
 
             <!-- Column 3 -->
             <div data-aos="fade-up">
-                <a href="https://tidd.ly/3FzY8fq" target="_blank" rel="noopener sponsored" class="mb-5">
+                <a href="https://booking.stay22.com/venture/s_umIY9uIP" target="_blank" rel="noopener sponsored"
+                    class="mb-5">
                     <!-- Accommodation Booking Service -->
                     <img src="/public/images/Flights&Accommodation.png" alt="Flights & Accommodation Service"
                         class="object-cover mb-5 w-full" />
