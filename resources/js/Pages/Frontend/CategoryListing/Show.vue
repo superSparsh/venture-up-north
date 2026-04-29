@@ -143,37 +143,37 @@ const normalizeUrl = (url) => {
 const iconClass = 'w-5 h-5 mt-1 text-bison'
 const shareAbs = (u) => new URL(u, window.location.origin).toString()
 const shareUrl = computed(() =>
-  shareAbs(`/explore/${props.category.slug}/${props.categoryListing.slug}`)
+    shareAbs(`/explore/${props.category.slug}/${props.categoryListing.slug}`)
 )
 
 const enc = s => encodeURIComponent(s || '')
 const facebookUrl = computed(() =>
-  `https://www.facebook.com/sharer/sharer.php?u=${enc(shareUrl.value)}`
+    `https://www.facebook.com/sharer/sharer.php?u=${enc(shareUrl.value)}`
 )
 const twitterUrl = computed(() =>
-  `https://twitter.com/intent/tweet?url=${enc(shareUrl.value)}&text=${enc(props.categoryListing.name)}`
+    `https://twitter.com/intent/tweet?url=${enc(shareUrl.value)}&text=${enc(props.categoryListing.name)}`
 )
 const linkedinUrl = computed(() =>
-  `https://www.linkedin.com/sharing/share-offsite/?url=${enc(shareUrl.value)}`
+    `https://www.linkedin.com/sharing/share-offsite/?url=${enc(shareUrl.value)}`
 )
 const whatsappUrl = computed(() =>
-  `https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl.value)}`
+    `https://api.whatsapp.com/send?text=${encodeURIComponent(shareUrl.value)}`
 )
 
 const canNativeShare = typeof navigator !== 'undefined' && typeof navigator.share === 'function'
 const nativeShare = async () => {
-  try {
-    await navigator.share({
-      title: props.categoryListing.name,
-      text: (props.categoryListing.summary || '').slice(0, 140),
-      url: shareUrl.value
-    })
-  } catch {}
+    try {
+        await navigator.share({
+            title: props.categoryListing.name,
+            text: (props.categoryListing.summary || '').slice(0, 140),
+            url: shareUrl.value
+        })
+    } catch { }
 }
 </script>
 <style scoped>
-.share-pill{
-  @apply inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-bison text-white;
+.share-pill {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-full bg-white/10 hover:bg-bison text-white;
 }
 </style>
 
@@ -215,7 +215,7 @@ const nativeShare = async () => {
                         <h3 class="text-xl font-semibold text-bison mb-2 pb-3 w-5/6 border-b border-envy">Tags</h3>
                         <Link v-for="tag in categoryListing.tags" :key="tag.id" :href="`#`"
                             class="px-3 py-1 tracking-wide uppercase rounded-full bg-gray-100 text-heavy text-lg block font-semibold hover:text-center hover:bg-heavy hover:text-white transition">
-                        {{ tag.name }}
+                            {{ tag.name }}
                         </Link>
                     </div>
                     <!-- Towns -->
@@ -223,7 +223,7 @@ const nativeShare = async () => {
                         <h3 class="text-xl font-semibold text-bison mb-2 pb-3 w-5/6 border-b border-envy">Towns</h3>
                         <Link v-for="town in categoryListing.towns" :key="town.id" :href="`/town/${town.slug}`"
                             class="px-3 py-1 tracking-wide uppercase rounded-full bg-gray-100 text-heavy text-lg block font-semibold hover:text-center hover:bg-heavy hover:text-white transition">
-                        {{ town.name }}
+                            {{ town.name }}
                         </Link>
                     </div>
 
@@ -232,7 +232,7 @@ const nativeShare = async () => {
                         <h3 class="text-xl font-semibold text-bison mb-2 pb-3 w-5/6 border-b border-envy">Events</h3>
                         <Link v-for="event in categoryListing.events" :key="event.id" :href="`/event/${event.slug}`"
                             class="px-3 py-1 tracking-wide uppercase rounded-full bg-gray-100 text-heavy text-lg block font-semibold hover:text-center hover:bg-heavy hover:text-white transition">
-                        {{ event.name }}
+                            {{ event.name }}
                         </Link>
                     </div>
                 </div>
@@ -251,7 +251,8 @@ const nativeShare = async () => {
                         <div
                             class="bg-heavy/80 text-white p-6 rounded-xl shadow-xl border border-white/10 backdrop-blur-md space-y-4">
                             <!-- Buttons -->
-                            <div v-if="categoryListing.custom_buttons?.length" class="w-full flex justify-center">
+                            <div v-if="categoryListing.custom_buttons?.length"
+                                class="w-full flex flex-col gap-3 justify-center">
                                 <a v-for="(field, i) in categoryListing.custom_buttons" :key="i" :href="field.value"
                                     class="block tracking-wide w-full max-w-md text-center text-lg font-bold text-white border border-white px-6 py-3 rounded hover:border-bison hover:text-bison transition-all"
                                     target="_blank" rel="noopener noreferrer">
